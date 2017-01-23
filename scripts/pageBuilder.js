@@ -32,6 +32,10 @@ function createCell(name, algs) {
 	var closeDiv = "</div>";
 	var closeP = "</p>";
 	
+	var openA = "<a class='alg' href='' target='_blank'>";
+	var closeA = "</a>"
+	
+	
 	var cellString = "<div class='cmllContainer'>" +
 					 "<div class='algName'>" +
 					 "<p>"+name+closeP+closeDiv +
@@ -41,7 +45,7 @@ function createCell(name, algs) {
 					 
 	var algsString = "";
 	for(var i = 0; i < algs.length; i++) {
-		algsString += "<p>"+algs[i]+closeP;
+		algsString += "<p class='algText'>"+openA+algs[i]+closeA+closeP;
 	}
 	
 	return cellString + algsString + closeDiv;
