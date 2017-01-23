@@ -141,6 +141,7 @@ R U' L' U R' U L U L' U L
 g6:
 (U2) R' U' R U' R' U F' U F R
 (U') R' U' R' F R F' R U' R' U2 R
+R2' D' R U R' D R U R U' R' U R U R' U R
 
 h1:
 (U) R U2' R' U' R U R' U' R U' R'
@@ -153,4 +154,3 @@ R U R' U R U L' U R' U' L
 
 h6:
 (U) F R U R' U' R U R' U' R U R' U' F'
-
