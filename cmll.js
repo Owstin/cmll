@@ -1,4 +1,4 @@
-a3:
+var cmllFullText = `a3:
 R U R' F' R U R' U' R' F R2 U' R'
 R U R' U' R' F R2 U' R' U' R U R' F'
 
@@ -153,3 +153,4 @@ R U R' U R U L' U R' U' L
 
 h6:
 (U) F R U R' U' R U R' U' R U R' U' F'
+`
