@@ -1,0 +1,26 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+p {
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+.cmllContainer {
+	width: 350px;
+}
+
+td {
+	vertical-align: top;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
