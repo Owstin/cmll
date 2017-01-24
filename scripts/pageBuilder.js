@@ -2,6 +2,7 @@ var MAX_HOR_CELLS = 6;
 var MIN_HOR_CELLS = 2;
 var horIdx = 0;
 var tableName = "cmllAlgs";
+var cellSize = "350";
 
 var testCmll = cmllObjs[0];
 
@@ -11,7 +12,7 @@ function buildPage() {
 }
 
 function createTable() {
-    var horCells = Math.floor(window.innerWidth/350);
+    var horCells = Math.floor(window.innerWidth/cellSize);
 
     if(horCells > MAX_HOR_CELLS) {
         horCells = MAX_HOR_CELLS;
@@ -78,4 +79,14 @@ function createCell(name, algs) {
 	}
 
 	return cellString + algsString + closeDiv;
+}
+
+window.onload = function() {
+	buildPage();
+	linker();
+}
+
+window.onresize = function() {
+	buildPage();
+	linker();
 }
