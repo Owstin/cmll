@@ -21,13 +21,13 @@ var caseName;
 var algs = [];
 for(var i = 0; i < cmlls.length; i++) {
     if(cmlls[i].includes(cases[caseIdx])) {
-        caseName = cases[caseIdx]
+        caseName = cases[caseIdx];
         caseIdx++;
-    } else if(cmlls[i] == "") {
+    } else if(cmlls[i] === "") {
         cmllObjs.push({
             name: caseName,
             algList: algs
-        })
+        });
         algs = [];
     } else {
         algs.push(cmlls[i]);

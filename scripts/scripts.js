@@ -9,4 +9,4 @@ function linker() {
 		refs[i] = pref + algs[i];
 		y[i].href = refs[i];
 	}
-};
+}

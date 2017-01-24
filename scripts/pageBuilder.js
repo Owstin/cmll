@@ -10,13 +10,13 @@ function buildPage() {
 }
 
 function createTable() {
-	var closeTr = "</tr>"
-	var closeTd = "</td>"
-	
-	var tableString = ""
-	
+	var closeTr = "</tr>";
+	var closeTd = "</td>";
+
+	var tableString = "";
+
 	for(var i = 0; i < cmllObjs.length; i++) {
-		if(horCells%2 == 0) {
+		if(horCells%2 === 0) {
 			tableString += "<tr>";
 		}
 		tableString += "<td>"+createCell(cmllObjs[i].name, cmllObjs[i].algList)+closeTd;
@@ -31,22 +31,22 @@ function createTable() {
 function createCell(name, algs) {
 	var closeDiv = "</div>";
 	var closeP = "</p>";
-	
+
 	var openA = "<a class='alg' href='' target='_blank'>";
-	var closeA = "</a>"
-	
-	
+	var closeA = "</a>";
+
+
 	var cellString = "<div class='cmllContainer'>" +
 					 "<div class='algName'>" +
 					 "<p>"+name+closeP+closeDiv +
 					 "<div class='algPic'>" +
 					 "<img src='images/"+name+".png' alt="+name+" picture />"+closeDiv +
 					 "<div class='algList'>";
-					 
+
 	var algsString = "";
 	for(var i = 0; i < algs.length; i++) {
 		algsString += "<p class='algText'>"+openA+algs[i]+closeA+closeP;
 	}
-	
+
 	return cellString + algsString + closeDiv;
 }
