@@ -1,5 +1,6 @@
-var MAX_HOR_CELLS = 2;
-var horCells = 0;
+var MAX_HOR_CELLS = 6;
+var MIN_HOR_CELLS = 2;
+var horIdx = 0;
 var tableName = "cmllAlgs";
 
 var testCmll = cmllObjs[0];
@@ -10,26 +11,54 @@ function buildPage() {
 }
 
 function createTable() {
+    var horCells = Math.floor(window.innerWidth/350);
+
+    if(horCells > MAX_HOR_CELLS) {
+        horCells = MAX_HOR_CELLS;
+    }
+    if(horCells < MIN_HOR_CELLS) {
+        horCells = MIN_HOR_CELLS;
+    }
+
 	var closeTr = "</tr>";
 	var closeTd = "</td>";
 
 	var tableString = "";
 
+    var letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+    var letterIdx;
+
 	for(var i = 0; i < cmllObjs.length; i++) {
-		if(horCells%MAX_HOR_CELLS === 0) {
+        var newRow = false;
+        var currChar = cmllObjs[i].name.substr(0, 1);
+        var nextChar;
+        if(i+1 < cmllObjs.length) {
+            nextChar = cmllObjs[i+1].name.substr(0, 1);
+        }
+
+        if(currChar != nextChar) {
+            newRow = true;
+        }
+
+        if(horIdx%horCells === 0) {
 			tableString += "<tr>";
 		}
 		tableString += "<td>"+createCell(cmllObjs[i].name, cmllObjs[i].algList)+closeTd;
-		if(horCells%MAX_HOR_CELLS == MAX_HOR_CELLS-1) {
+		if((horIdx%horCells == horCells-1) || newRow) {
 			tableString += closeTr;
 		}
-		horCells++;
+        if(newRow) {
+            horIdx = 0;
+        } else {
+            horIdx++;
+        }
 	}
 	return tableString;
 }
 
 function createCell(name, algs) {
 	var closeDiv = "</div>";
+    var closeH3 = "</h4>"
 	var closeP = "</p>";
 
 	var openA = "<a class='alg' href='' target='_blank'>";
@@ -38,7 +67,7 @@ function createCell(name, algs) {
 
 	var cellString = "<div class='cmllContainer'>" +
 					 "<div class='algName'>" +
-					 "<p>"+name+closeP+closeDiv +
+					 "<h4>"+name+closeP+closeDiv +
 					 "<div class='algPic'>" +
 					 "<img src='images/"+name+".png' alt="+name+" picture />"+closeDiv +
 					 "<div class='algList'>";
