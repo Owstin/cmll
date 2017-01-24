@@ -16,11 +16,11 @@ function createTable() {
 	var tableString = "";
 
 	for(var i = 0; i < cmllObjs.length; i++) {
-		if(horCells%2 === 0) {
+		if(horCells%MAX_HOR_CELLS === 0) {
 			tableString += "<tr>";
 		}
 		tableString += "<td>"+createCell(cmllObjs[i].name, cmllObjs[i].algList)+closeTd;
-		if(horCells%2 == 1) {
+		if(horCells%MAX_HOR_CELLS == MAX_HOR_CELLS-1) {
 			tableString += closeTr;
 		}
 		horCells++;
