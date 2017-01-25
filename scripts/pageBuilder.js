@@ -6,13 +6,19 @@ var cellName = "cmllContainer";
 var nameDiv = "algName";
 var picDiv = "algPic";
 var listDiv = "algList";
-var cellSize = 350;
+var cellSize = 320;
 
-var testCmll = cmllObjs[0];
+function setCellSize() {
+	var cell = document.getElementsByClassName(cellName);
+	for(var i = 0, n = cell.length; i < n; i++) {
+		cell[i].style.width = cellSize.toString()+"px";
+	}
+}
 
 function buildPage() {
 	document.body.innerHTML = "<table id="+tableName+"></table>";
 	document.getElementById(tableName).innerHTML = createTable();
+	setCellSize();
 	addLinks();
 	addRotations();
 }

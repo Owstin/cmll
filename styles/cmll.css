@@ -10,8 +10,13 @@ html {
 body {
 	font-family: 'Droid Sans', sans-serif;
 }
+
 p, h3 {
 	text-align: center;
+}
+
+h3 {
+	margin-top: 10px;
 }
 
 a {
@@ -35,7 +40,6 @@ table {
 }
 
 .cmllContainer {
-	width: 350px;
 	margin-bottom: 10px;
 }
 
