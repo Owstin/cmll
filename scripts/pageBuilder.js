@@ -65,7 +65,7 @@ function createTable() {
 
 function createCell(name, algs) {
 	var closeDiv = "</div>";
-    var closeH3 = "</h4>"
+    var closeH3 = "</h3>"
 	var closeP = "</p>";
 
 	var openA = "<a class='alg' href='' target='_blank'>";
@@ -74,7 +74,7 @@ function createCell(name, algs) {
 
 	var cellString = "<div class="+cellName+">" +
 					 "<div class="+nameDiv+">" +
-					 "<h4>"+name+closeDiv +
+					 "<h3>"+name+closeDiv +
 					 "<div class="+picDiv+">" +
 					 "<img src='images/"+name+".png' alt='"+name+" picture' />"+closeDiv +
 					 "<div class="+listDiv+">";

@@ -44,7 +44,7 @@ function rotator(p, img) {
 	var text = p.innerText;
 	var move = text.substr(0, text.search(/ /));
 	var degrees = "rotate(0deg)";
-	var speed = "100ms";
+	var speed = "200ms";
 
 	var acceptedMove = move.substr(0,1) == "(";
 
@@ -55,14 +55,14 @@ function rotator(p, img) {
 			degrees = "rotate(-90deg)";
 		} else if(move == "(U2)") {
 			degrees = "rotate(180deg)";
-			speed = "200ms";
+			speed = "400ms";
 		} else {
 			degrees = "rotate(-180deg)";
-			speed = "200ms";
+			speed = "400ms";
 		}
 	}
 
-	p.onmouseover = function() {
+	p.onmouseenter = function() {
 		img.style.transform = degrees;
 		img.style.transition = speed;
 	}

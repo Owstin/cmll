@@ -7,7 +7,10 @@ html {
     background-color: #9fc6ac;
 }
 
-p, h4 {
+body {
+	font-family: 'Droid Sans', sans-serif;
+}
+p, h2 {
 	text-align: center;
 }
 
