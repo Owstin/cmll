@@ -65,6 +65,7 @@ function rotator(p, img) {
 	p.onmouseenter = function() {
 		img.style.transform = degrees;
 		img.style.transition = speed;
+		img.style.zIndex = "0";
 	}
 	p.onmouseleave = function() {
 		img.style.transform = "rotate(0deg)";

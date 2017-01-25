@@ -14,7 +14,13 @@ p, h3 {
 	text-align: center;
 }
 
+a {
+	position: relative;
+	z-index: 1;
+}
+
 img {
+	position: relative;
 	display: block;
 	margin: 0 auto;
 }
