@@ -11,23 +11,63 @@ function addLinks() {
 	}
 }
 
-function rotations() {
+function addRotations() {
 	var pics = document.getElementsByClassName(picDiv);
 	var lists = document.getElementsByClassName(listDiv);
 
 	var imgPics = [];
-	var listArray = [];
-	for(var i = 0; i < pics.length; i++) {
+	var listArrays = [];
+	for(var i = 0, n = pics.length; i < n; i++) {
 		imgPics.push(pics[i].firstChild);
 	}
-	for(var i = 0; i < lists.length; i++) {
+	for(var i = 0, n = lists.length; i < n; i++) {
 		var listChildren = lists[i].childNodes;
 		var pArray = [];
-		for(var j = 0; j < listChildren.length; j++) {
-			pArray.push(listChildren[j]);
+		for(var j = 0, m = listChildren.length; j < m; j++) {
+			pArray.push(listChildren[j].firstChild);
 		}
-		listArray.push(pArray);
+		listArrays.push(pArray);
 	}
-	console.log(imgPics);
-	console.log(listArray);
+
+	var pos = 3;
+	var testImg = imgPics[pos];
+	var testAlgs = listArrays[pos];
+
+	for(var i = 0, n = imgPics.length; i < n; i++) {
+		for(var j = 0, m = listArrays[i].length; j < m; j++) {
+			rotator(listArrays[i][j], imgPics[i]);
+		}
+	}
+}
+
+function rotator(p, img) {
+	var text = p.innerText;
+	var move = text.substr(0, text.search(/ /));
+	var degrees = "rotate(0deg)";
+	var speed = "100ms";
+
+	var acceptedMove = move.substr(0,1) == "(";
+
+	if(acceptedMove) {
+		if(move == "(U)") {
+			degrees = "rotate(90deg)";
+		} else if(move == "(U')") {
+			degrees = "rotate(-90deg)";
+		} else if(move == "(U2)") {
+			degrees = "rotate(180deg)";
+			speed = "200ms";
+		} else {
+			degrees = "rotate(-180deg)";
+			speed = "200ms";
+		}
+	}
+
+	p.onmouseover = function() {
+		img.style.transform = degrees;
+		img.style.transition = speed;
+	}
+	p.onmouseleave = function() {
+		img.style.transform = "rotate(0deg)";
+		img.style.transition = speed;
+	}
 }

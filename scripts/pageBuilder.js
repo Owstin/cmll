@@ -14,6 +14,7 @@ function buildPage() {
 	document.body.innerHTML = "<table id="+tableName+"></table>";
 	document.getElementById(tableName).innerHTML = createTable();
 	addLinks();
+	addRotations();
 }
 
 function createTable() {
@@ -88,7 +89,6 @@ function createCell(name, algs) {
 
 window.onload = function() {
 	buildPage();
-	rotations();
 }
 
 window.onresize = function() {
