@@ -3,6 +3,10 @@
 	margin: 0px;
 }
 
+html {
+    background-color: #9fc6ac;
+}
+
 p, h4 {
 	text-align: center;
 }

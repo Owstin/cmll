@@ -2,13 +2,18 @@ var MAX_HOR_CELLS = 6;
 var MIN_HOR_CELLS = 2;
 var horIdx = 0;
 var tableName = "cmllAlgs";
-var cellSize = "350";
+var cellName = "cmllContainer";
+var nameDiv = "algName";
+var picDiv = "algPic";
+var listDiv = "algList";
+var cellSize = 350;
 
 var testCmll = cmllObjs[0];
 
 function buildPage() {
-	document.body.innerHTML = "<table id='"+tableName+"'></table>";
+	document.body.innerHTML = "<table id="+tableName+"></table>";
 	document.getElementById(tableName).innerHTML = createTable();
+	addLinks();
 }
 
 function createTable() {
@@ -66,12 +71,12 @@ function createCell(name, algs) {
 	var closeA = "</a>";
 
 
-	var cellString = "<div class='cmllContainer'>" +
-					 "<div class='algName'>" +
-					 "<h4>"+name+closeP+closeDiv +
-					 "<div class='algPic'>" +
-					 "<img src='images/"+name+".png' alt="+name+" picture />"+closeDiv +
-					 "<div class='algList'>";
+	var cellString = "<div class="+cellName+">" +
+					 "<div class="+nameDiv+">" +
+					 "<h4>"+name+closeDiv +
+					 "<div class="+picDiv+">" +
+					 "<img src='images/"+name+".png' alt='"+name+" picture' />"+closeDiv +
+					 "<div class="+listDiv+">";
 
 	var algsString = "";
 	for(var i = 0; i < algs.length; i++) {
@@ -83,10 +88,9 @@ function createCell(name, algs) {
 
 window.onload = function() {
 	buildPage();
-	linker();
+	rotations();
 }
 
 window.onresize = function() {
 	buildPage();
-	linker();
 }
