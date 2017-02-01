@@ -1,6 +1,5 @@
 var MAX_HOR_CELLS = 6;
 var MIN_HOR_CELLS = 2;
-var horIdx = 0;
 var tableName = "cmllAlgs";
 var cellName = "cmllContainer";
 var nameDiv = "algName";
@@ -25,6 +24,7 @@ function buildPage() {
 
 function createTable() {
     var horCells = Math.floor(window.innerWidth/cellSize);
+	var horIdx = 0;
 
     if(horCells > MAX_HOR_CELLS) {
         horCells = MAX_HOR_CELLS;
