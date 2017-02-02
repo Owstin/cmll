@@ -6,11 +6,11 @@ win = True if(os.name == "nt") else False
 cwd = os.getcwd()
 slash = "\\\\" if win else "/"
 accent = "`"
-cmllfilename = "cmll.txt"
-scriptsdir = "scripts"
+cmllFileName = "cmll.txt"
+scriptsDir = "scripts"
 
-def generatecases():
-    cases = []#["a3:", "a6:"]
+def generateCases():
+    cases = []
     letters = ["a","b","c","d","e","f","g", "h"]
     for i in range(0, len(letters)):
         if(letters[i] == "a"):
@@ -23,9 +23,9 @@ def generatecases():
             cases.append(letters[i]+str(j)+":")
     return cases
 
-cases = generatecases()
+cases = generateCases()
 
-def accessfile(filepath):
+def accessFile(filepath):
     try:
         file = open(filepath, "r")
         file.close()
@@ -33,24 +33,24 @@ def accessfile(filepath):
         return False
     return True
 
-def writecases(file):
+def writeCases(file):
     filestr = "";
     for i in range(0, len(cases)):
-        newline = "\n"
-        if(i < len(cases)-1):
-            newline = "\n\n"
+        newline = "\n\n"
+        if(i == len(cases)-1):
+            newline = "\n"
         filestr += cases[i]+newline
 
     file.write(filestr)
 
-def isempty(file):
-    #file = open(filepath, "r+")
+def isEmpty(file):
     if(file.read(1) == ""):
         return True
     return False
 
-def filestring(file):
+def fileString(file):
     filestr = ""
+
     while True:
         c = file.read(1)
         if not c:
@@ -58,50 +58,63 @@ def filestring(file):
         filestr += c
     return filestr
 
-def changeext(filepath, newext):
-    path = isolatepath(filepath)
-    filestr = isolatefile(filepath)
+def changeExt(filepath, newext):
+    path = isolatePath(filepath)
+    filestr = isolateFile(filepath)
     perpos = filestr.rfind(".")
     if(perpos != -1):
         return filestr[:perpos]+"."+newext
     else:
         return filestr+"."+newext
 
-def isolatefile(filepath):
+def isolateFile(filepath):
     slashpos = filepath.rfind(slash)
     if(slashpos == -1):
         return filepath
     else:
         return filepath[slashpos+1::]
 
-def isolatepath(filepath):
+def isolatePath(filepath):
     slashpos = filepath.rfind(slash)
     if(slashpos == -1):
         return ""
     else:
         return filepath[:slashpos+1]
 
-def createfile(filepath, cases):
-    if(not accessfile(filepath)):
+def openFile(filepath, cases):
+    if(not accessFile(filepath)):
         file = open(filepath, "w+")
         if(cases and isempty(file)):
-            writecases(file)
+            writeCases(file)
         file.close()
 
     file = open(filepath, "r+")
     return file
 
-cmllfile = createfile(cmllfilename, True)
+def isComplete(file):
+    totalCases = len(cases)
 
-cmlltext = filestring(cmllfile)
-cmllfile.close()
+    text = filestring(file)
+    colons = text.count(":")
 
-jsfilepath = os.path.join(cwd, scriptsdir, changeext(cmllfilename, "js"))
-jsfile = createfile(jsfilepath, False)
+    pos = 0
+    for i in range(0, totalCases):
+        cPos = text.find(":", pos)
+        if(text[cPos-2:cPos+1] !=  cases[i]):
+            return False
+        pos = cPos+1
+    return True
 
-jsfiletext = "var cmllFullText = "+accent
-for i in range(0, len(cmlltext)):
-    jsfiletext += cmlltext[i]
-jsfiletext += accent+";"
+cmllFile = openFile(cmllFileName, True)
+cmllText = fileString(cmllFile)
+cmllFile.close()
 
-jsfile.write(jsfiletext)
+jsFilePath = os.path.join(cwd, scriptsDir, changeExt(cmllFileName, "js"))
+jsFile = open(jsFilePath, "w+")
+
+jsStr = "var cmllFullText = "+accent
+for i in range(0, len(cmllText)):
+    jsStr += cmllText[i]
+jsStr += accent+";"
+jsFile.write(jsStr)
+jsFile.close()
