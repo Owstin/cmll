@@ -24,8 +24,9 @@ def generateCases():
     return cases
 
 cases = generateCases()
+TOTAL_CASES = len(cases)
 
-def accessFile(filepath):
+def hasAccess(filepath):
     try:
         file = open(filepath, "r")
         file.close()
@@ -33,15 +34,15 @@ def accessFile(filepath):
         return False
     return True
 
-def writeCases(file):
-    filestr = "";
+def writeCases():
+    fileStr = "";
     for i in range(0, len(cases)):
         newline = "\n\n"
         if(i == len(cases)-1):
             newline = "\n"
-        filestr += cases[i]+newline
+        fileStr += cases[i]+newline
 
-    file.write(filestr)
+    return fileStr
 
 def isEmpty(file):
     if(file.read(1) == ""):
@@ -81,21 +82,24 @@ def isolatePath(filepath):
     else:
         return filepath[:slashpos+1]
 
-def openFile(filepath, cases):
-    if(not accessFile(filepath)):
-        file = open(filepath, "w+")
-        if(cases and isempty(file)):
-            writeCases(file)
-        file.close()
+#def openFile(filepath, cases):
+#    if(not accessFile(filepath)):
+#        file = open(filepath, "w+")
+#        if(cases and isempty(file)):
+#            writeCases(file)
+#        file.close()
+#
+#    file = open(filepath, "r+")
+#    return file
 
-    file = open(filepath, "r+")
-    return file
-
-def isComplete(file):
+def isComplete(fileStr):
     totalCases = len(cases)
 
-    text = filestring(file)
+    text = fileStr
     colons = text.count(":")
+
+    if not totalCases == colons:
+        return false
 
     pos = 0
     for i in range(0, totalCases):
@@ -105,16 +109,67 @@ def isComplete(file):
         pos = cPos+1
     return True
 
-cmllFile = openFile(cmllFileName, True)
-cmllText = fileString(cmllFile)
-cmllFile.close()
+def readInputFile(filepath):
+    fileStr = ""
+    if not hasAccess(filepath):
+        file = open(filepath, "w+")
+        fileStr = writeCases()
+        file.write(fileStr)
+        return fileStr
 
-jsFilePath = os.path.join(cwd, scriptsDir, changeExt(cmllFileName, "js"))
-jsFile = open(jsFilePath, "w+")
+    file = open(filepath, "r+")
+    fileStr = fileString(file)
+    file.close()
+    return fileStr
 
-jsStr = "var cmllFullText = "+accent
-for i in range(0, len(cmllText)):
-    jsStr += cmllText[i]
-jsStr += accent+";"
-jsFile.write(jsStr)
-jsFile.close()
+def addAlg(algName, algText):
+    LF = "\n"
+
+    colons = cmllText.count(":")
+    pos = 0
+    cPos = 0
+    for i in range(0, totalCases):
+        cPos = cmllText.find(":", pos)
+        if(cmllText[cPos-2:cPos] == updateCase):
+            break
+        pos = cPos+1
+
+    newLine = cmllText.find("\n\n", cPos)
+    cmllText = cmllText[:newLine+1] +updateAlg + LF + cmllText[newLine+1:]
+
+def updateFile(filepath, str):
+    file = open(filepath, "w+")
+    file.write(str)
+    file.close()
+#cmllFile = openFile(cmllFileName, True)
+#cmllText = fileString(cmllFile)
+#cmllFile.close()
+
+#jsFilePath = os.path.join(cwd, scriptsDir, changeExt(cmllFileName, "js"))
+#jsFile = open(jsFilePath, "w+")
+
+#jsStr = "var cmllFullText = "+accent
+#for i in range(0, len(cmllText)):
+#    jsStr += cmllText[i]
+#jsStr += accent+";"
+#jsFile.write(jsStr)
+#jsFile.close()
+cmllText = readInputFile(cmllFileName)
+
+updateCase = "c1"
+updateAlg = "r U R' U R U2 r'"
+LF = "\n"
+
+colons = cmllText.count(":")
+pos = 0
+cPos = 0
+for i in range(0, TOTAL_CASES):
+    cPos = cmllText.find(":", pos)
+    if(cmllText[cPos-2:cPos] == updateCase):
+        break
+    pos = cPos+1
+
+newLine = cmllText.find("\n\n", cPos)
+cmllText = cmllText[:newLine+1] +updateAlg + LF + cmllText[newLine+1:]
+
+updateFile(cmllFileName, cmllText)

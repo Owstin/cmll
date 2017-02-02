@@ -27,6 +27,7 @@ L' U' L U' R U' L' U R' U2 L
 
 c1:
 R U R' U R U2 R'
+r U R' U R U2 r'
 
 c2:
 L' U2 L U2 L F' L' F
