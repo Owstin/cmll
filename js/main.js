@@ -1,6 +1,7 @@
 import 'jquery';
 import 'angular';
-import './cmll';
+import './addLinks';
+import './rotate';
 
 angular.module('app', [])
     .controller('AppController', function() {
