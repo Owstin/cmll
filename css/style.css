@@ -1,0 +1,52 @@
+body {
+    background-color: lightskyblue;
+    padding: 0;
+    margin: 50px 0;
+}
+
+a {
+    border: 1px black solid;
+}
+
+h2{
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.row {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.card-container {
+    width: 320px;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+    text-align: center;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 5000ms;
+    z-index: 0;
+}
+
+.text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.flip {
+    transform: rotate(90deg);
+}
