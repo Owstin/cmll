@@ -5,7 +5,7 @@ body {
 }
 
 a {
-    border: 1px black solid;
+    padding: 5px 0;
 }
 
 h2{
@@ -25,28 +25,32 @@ h2{
     margin: 0 auto;
     vertical-align: top;
     text-align: center;
+    transition-duration: 500ms;
 }
 
-.card {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    background-color: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition-duration: 5000ms;
+img {
     z-index: 0;
+    transition-duration: inherit;
 }
 
-.text {
+.alg {
     position: relative;
-    display: flex;
-    justify-content: center;
     z-index: 1;
 }
 
 .flip {
     transform: rotate(90deg);
+}
+
+.left {
+    transform: rotate(-90deg);
+}
+
+.right {
+    transform: rotate(90deg);
+}
+
+.double {
+    transform: rotate(180deg);
+    transition-duration: 1s;
 }

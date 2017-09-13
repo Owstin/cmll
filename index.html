@@ -11,7 +11,9 @@
     <div class="card-container" ng-repeat="alg in algs">
       <h2 class="name">{{alg.name}}</h2>
       <img ng-src="./images/{{alg.name}}.png" alt="{{alg.name}}">
-      <p ng-repeat="note in alg.algs"><a class="alg">{{note}}</a></p>
+      <p ng-repeat="note in alg.algs">
+        <a class="alg">{{note}}</a>
+      </p>
     </div>
   </div>
   <script src="bundle.js"></script>
