@@ -35,11 +35,11 @@ h2 {
     margin-top: 10px;
 }
 
-.row {
+/* .row {
     position: relative;
     display: block;
     margin: 0 auto;
-}
+} */
 
 .card-container {
     min-width: 315px;

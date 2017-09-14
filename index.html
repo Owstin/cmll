@@ -7,7 +7,7 @@
 </head>
 
 <body ng-app="app" ng-controller="AppController as ctrl" ng-cloak>
-  <div class="row" ng-repeat="(set, algs) in ctrl.algs" class="text">
+  <div class="row" ng-repeat="(set, algs) in ctrl.algs">
     <div class="card-container col-md-2" ng-repeat="alg in algs">
       <h2 class="name">{{alg.name}}</h2>
       <img ng-src="./images/{{alg.name}}.png" alt="{{alg.name}}">
