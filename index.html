@@ -3,20 +3,20 @@
 
 <head>
   <title>Thing</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="dist/main.css">
 </head>
 
-<body ng-app="app" ng-controller="AppController as ctrl" ng-cloak>
+<body ng-app="app" ng-controller="AppController as ctrl">
   <div class="row" ng-repeat="(set, algs) in ctrl.algs" class="text">
     <div class="card-container col-md-2" ng-repeat="alg in algs">
       <h2 class="name">{{alg.name}}</h2>
-      <img ng-src="./images/{{alg.name}}.png" alt="{{alg.name}}">
+      <img ng-src="./images/{{alg.name}}.png" alt="{{alg.name}}" ng-cloak>
       <p ng-repeat="note in alg.algs">
         <a class="alg" target="_blank">{{note}}</a>
       </p>
     </div>
   </div>
-  <script src="bundle.js"></script>
+  <script src="dist/bundle.js"></script>
 </body>
 
 </html>

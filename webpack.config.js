@@ -1,4 +1,4 @@
-//const path = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
@@ -9,7 +9,9 @@ const extractPlugin = new ExtractTextWebpackPlugin({
 module.exports = {
     entry: './js/main.js',
     output: {
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: '/dist'
     },
 
     module: {
