@@ -1,5 +1,10 @@
-// const path = require('path');
+//const path = require('path');
 const webpack = require('webpack');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
+const extractPlugin = new ExtractTextWebpackPlugin({
+    filename: 'main.css'
+});
 
 module.exports = {
     entry: './js/main.js',
@@ -17,10 +22,22 @@ module.exports = {
                     presets: ['es2015']
                 }
             }
-        }]
+        },
+        {
+            test: /.css$/,
+            use: extractPlugin.extract({
+                use: ['css-loader']
+            })
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf|svg)$/,
+            use: ['url-loader']
+        }
+        ]
     },
 
     plugins: [
+        extractPlugin,
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'

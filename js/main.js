@@ -1,4 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import '../css/style.css';
+
 import 'jquery';
+import 'bootstrap';
 import 'angular';
 import './addLinks';
 import './rotate';

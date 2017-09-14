@@ -7,7 +7,7 @@ $(function() {
 });
 
 function rotateDirection(alg) {
-    var text = $(alg).text();
+    const text = $(alg).text();
     if(text.charAt(1) === 'U') {
         switch(text.charAt(2)) {
         case '\'':
