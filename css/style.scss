@@ -1,3 +1,5 @@
+$icon-font-path: "/assets/fonts/bootstrap/";
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -35,24 +37,33 @@ h2 {
     margin-top: 10px;
 }
 
-/* .row {
+img {
+    z-index: 0;
+    transition-duration: inherit;
+}
+
+.wrap {
     position: relative;
-    display: block;
     margin: 0 auto;
-} */
+}
+
+.row {
+    // position: relative;
+    // display: block;
+    margin: 0;
+}
+
+.col-md-2 {
+    padding: 0;
+}
 
 .card-container {
-    min-width: 315px;
-    display: inline-block;
+    // max-width: 315px;
+    // display: inline-block;
     margin: 0 auto;
     vertical-align: top;
     text-align: center;
     transition-duration: 500ms;
-}
-
-img {
-    z-index: 0;
-    transition-duration: inherit;
 }
 
 .alg {
