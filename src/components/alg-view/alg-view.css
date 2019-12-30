@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.alg-image {
+  transition-duration: 800ms;
+  z-index: 0;
+}
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate--90 {
+  transform: rotate(-90deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
