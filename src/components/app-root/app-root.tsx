@@ -30,7 +30,7 @@ export class AppRoot {
       <ion-app>
         <ion-content fullscreen>
           <ion-grid>
-            { Array.from(this.algs.entries()).map(([collectionName, collectionData]) => {
+            { [...this.algs.entries()].map(([collectionName, collectionData]) => {
                 return (
                   <bga-cmll-collection
                     collectionName={collectionName}
