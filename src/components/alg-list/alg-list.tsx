@@ -3,8 +3,6 @@ import {
   Host,
   h,
   Prop,
-  Event,
-  EventEmitter,
   State
 } from '@stencil/core';
 
@@ -17,15 +15,15 @@ export class AlgList {
   @Prop()
   algList!: string[];
 
+  @Prop()
+  setAlgRotation!: (rotation: number) => void;
+
   @State()
   algViewerLink: string;
 
-  @Event()
-  algRoation: EventEmitter<number>;
-
   algRotationHandler(alg: string) {
     const rotation = this.getAlgRotation(alg);
-    this.algRoation.emit(rotation);
+    this.setAlgRotation(rotation);
   }
 
   getAlgRotation(alg: string) {
@@ -36,8 +34,8 @@ export class AlgList {
       null: 0
     }
     const aufRegex = /^\(U[\'2]?\)+/
-    const [match] = alg.match(aufRegex) || [null];
-    return rotationOptions[match];
+    const [rotationMatch] = alg.match(aufRegex) || [null];
+    return rotationOptions[rotationMatch];
   }
 
   createAlgViewerLink(alg: string) {
