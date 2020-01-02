@@ -15,6 +15,7 @@ export namespace Components {
   interface AppRoot {}
   interface BgaAlgList {
     'algList': string[];
+    'setAlgRotation': (rotation: number) => void;
   }
   interface BgaAlgView {
     'alg': AlgModel;
@@ -63,7 +64,7 @@ declare namespace LocalJSX {
   interface AppRoot {}
   interface BgaAlgList {
     'algList': string[];
-    'onAlgRoation'?: (event: CustomEvent<number>) => void;
+    'setAlgRotation': (rotation: number) => void;
   }
   interface BgaAlgView {
     'alg': AlgModel;
