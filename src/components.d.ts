@@ -24,6 +24,10 @@ export namespace Components {
     'collectionData': AlgModel[];
     'collectionName': string;
   }
+  interface RxLazyImage {
+    'alt': string;
+    'src': string;
+  }
 }
 
 declare global {
@@ -52,11 +56,18 @@ declare global {
     prototype: HTMLBgaCmllCollectionElement;
     new (): HTMLBgaCmllCollectionElement;
   };
+
+  interface HTMLRxLazyImageElement extends Components.RxLazyImage, HTMLStencilElement {}
+  var HTMLRxLazyImageElement: {
+    prototype: HTMLRxLazyImageElement;
+    new (): HTMLRxLazyImageElement;
+  };
   interface HTMLElementTagNameMap {
     'app-root': HTMLAppRootElement;
     'bga-alg-list': HTMLBgaAlgListElement;
     'bga-alg-view': HTMLBgaAlgViewElement;
     'bga-cmll-collection': HTMLBgaCmllCollectionElement;
+    'rx-lazy-image': HTMLRxLazyImageElement;
   }
 }
 
@@ -73,12 +84,17 @@ declare namespace LocalJSX {
     'collectionData': AlgModel[];
     'collectionName': string;
   }
+  interface RxLazyImage {
+    'alt'?: string;
+    'src': string;
+  }
 
   interface IntrinsicElements {
     'app-root': AppRoot;
     'bga-alg-list': BgaAlgList;
     'bga-alg-view': BgaAlgView;
     'bga-cmll-collection': BgaCmllCollection;
+    'rx-lazy-image': RxLazyImage;
   }
 }
 
@@ -92,6 +108,7 @@ declare module "@stencil/core" {
       'bga-alg-list': LocalJSX.BgaAlgList & JSXBase.HTMLAttributes<HTMLBgaAlgListElement>;
       'bga-alg-view': LocalJSX.BgaAlgView & JSXBase.HTMLAttributes<HTMLBgaAlgViewElement>;
       'bga-cmll-collection': LocalJSX.BgaCmllCollection & JSXBase.HTMLAttributes<HTMLBgaCmllCollectionElement>;
+      'rx-lazy-image': LocalJSX.RxLazyImage & JSXBase.HTMLAttributes<HTMLRxLazyImageElement>;
     }
   }
 }
