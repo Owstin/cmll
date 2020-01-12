@@ -30,7 +30,7 @@ export class AlgView {
     return (
       <Host>
         <h3>{this.alg.name}</h3>
-        <img
+        <rx-lazy-image
           class={this.classNames.join(' ')}
           src={getAssetPath(`../../assets/images/${this.alg.name}.png`)}
         />
