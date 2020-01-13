@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, State } from '@stencil/core';
-import { Subject, Observable } from 'rxjs';
-import { flatMap, distinctUntilChanged, takeUntil, map } from 'rxjs/operators';
+import { Subject, Observable, of } from 'rxjs';
+import { flatMap, distinctUntilChanged, takeUntil, map, delay } from 'rxjs/operators';
 
 @Component({
   tag: 'rx-lazy-image',
@@ -20,11 +20,11 @@ export class LazyImage {
   @State()
   lazySrc?: string;
 
+  legacyTimeout = 300;
   unsubscribe = new Subject<boolean>();
-  imageRef: HTMLElement;
 
   componentWillLoad() {
-    this.addIntersectionObserver().pipe(
+    this.createObserver().pipe(
       takeUntil(this.unsubscribe)
     ).subscribe(isIntersecting => {
       if (isIntersecting) {
@@ -35,6 +35,13 @@ export class LazyImage {
 
   componentDidUnload() {
     this.removeIntersectionObserver();
+  }
+
+  createObserver() {
+    if ('IntersectionObserver' in window) {
+      return this.addIntersectionObserver();
+    }
+    return this.addLegacyTimeout();
   }
 
   addIntersectionObserver() {
@@ -53,11 +60,15 @@ export class LazyImage {
     )
   }
 
+  addLegacyTimeout() {
+    return of(false).pipe(
+      delay(this.legacyTimeout),
+      map(() => true)
+    )
+  }
+
   loadImage() {
     this.lazySrc = this.src;
-    this.imageRef.onload = () => {
-      this.removeIntersectionObserver();
-    }
   }
 
   removeIntersectionObserver() {
@@ -72,7 +83,7 @@ export class LazyImage {
       <img
         src={this.lazySrc}
         alt={this.alt}
-        ref={imageRef => this.imageRef = imageRef}
+        onLoad={ () => this.removeIntersectionObserver() }
       />
     );
   }
