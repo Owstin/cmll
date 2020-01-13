@@ -1,13 +1,15 @@
-import { Component, h, Prop, Element } from '@stencil/core';
+import { Component, h, Prop, Element, State } from '@stencil/core';
 import { Subject, Observable } from 'rxjs';
 import { flatMap, distinctUntilChanged, takeUntil, map } from 'rxjs/operators';
 
 @Component({
   tag: 'rx-lazy-image',
+  styleUrl: 'lazy-image.css',
   shadow: true
 })
 export class LazyImage {
-  unsubscribe = new Subject<boolean>();
+  @Element()
+  el: HTMLElement;
 
   @Prop()
   src!: string;
@@ -15,9 +17,10 @@ export class LazyImage {
   @Prop()
   alt: string;
 
-  @Element()
-  el: HTMLElement;
+  @State()
+  lazySrc?: string;
 
+  unsubscribe = new Subject<boolean>();
   imageRef: HTMLElement;
 
   componentWillLoad() {
@@ -51,9 +54,8 @@ export class LazyImage {
   }
 
   loadImage() {
-    this.imageRef.setAttribute('src', this.src);
+    this.lazySrc = this.src;
     this.imageRef.onload = () => {
-      this.imageRef.removeAttribute('lazy-src');
       this.removeIntersectionObserver();
     }
   }
@@ -68,7 +70,7 @@ export class LazyImage {
   render() {
     return (
       <img
-        lazy-src={this.src}
+        src={this.lazySrc}
         alt={this.alt}
         ref={imageRef => this.imageRef = imageRef}
       />
