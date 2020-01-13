@@ -17,7 +17,7 @@ export class CmllCollection {
     return (
       <Host>
         <div>
-          <h1>{this.collectionName}</h1>
+          <h1 class="collection-name">{this.collectionName}</h1>
         </div>
         <ion-row >
           {
