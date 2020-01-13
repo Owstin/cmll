@@ -49,10 +49,10 @@ export class AlgList {
       <Host>
         {
           this.algList.map(alg => (
-            <p>
+            <p class="alg-link">
               <a
-                onMouseOver={() => this.algRotationHandler(alg)}
-                onMouseLeave={() => this.algRotationHandler('')}
+                onMouseEnter={() => this.algRotationHandler(alg)}
+                onMouseOut={() => this.algRotationHandler('')}
                 href={this.createAlgViewerLink(alg)}
                 target="_blank"
               >
