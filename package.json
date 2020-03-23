@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "description": "bg-alg-page",
+  "author": {
+    "name": "Austin Moore"
+  },
   "license": "MIT",
   "files": [
     "dist/"
