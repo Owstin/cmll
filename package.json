@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "description": "bg-alg-page",
   "author": {
-    "name": "Austin Moore"
+    "name": "Austin Moore",
+    "email": "owstingreen@gmail.com"
   },
   "license": "MIT",
   "files": [
