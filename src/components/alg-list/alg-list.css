@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.alg-link {
+  position: relative;
+}

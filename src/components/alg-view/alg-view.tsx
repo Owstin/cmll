@@ -1,4 +1,11 @@
-import { Component, Host, h, Prop, getAssetPath, Listen, State } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  getAssetPath,
+  State
+} from '@stencil/core';
 import { AlgModel } from '../../models/alg.model';
 
 @Component({
@@ -15,9 +22,7 @@ export class AlgView {
   @State()
   classNames = [this.algImageClass];
 
-  @Listen('algRoation')
-  recieveAlgRotation(event: CustomEvent<number>) {
-    const { detail: rotation } = event;
+  setAlgRotation = (rotation: number) => {
     this.classNames = [this.algImageClass, `rotate-${rotation}`];
   }
 
@@ -25,11 +30,11 @@ export class AlgView {
     return (
       <Host>
         <h3>{this.alg.name}</h3>
-        <img
+        <rx-lazy-image
           class={this.classNames.join(' ')}
           src={getAssetPath(`../../assets/images/${this.alg.name}.png`)}
         />
-        <bga-alg-list algList={this.alg.cases} />
+        <bga-alg-list algList={this.alg.cases} setAlgRotation={ this.setAlgRotation } />
       </Host>
     );
   }

@@ -29,8 +29,8 @@ export class AppRoot {
     return (
       <ion-app>
         <ion-content fullscreen>
-          <ion-grid>
-            { Array.from(this.algs.entries()).map(([collectionName, collectionData]) => {
+          <ion-grid class="grid-padding">
+            { [...this.algs.entries()].map(([collectionName, collectionData]) => {
                 return (
                   <bga-cmll-collection
                     collectionName={collectionName}
