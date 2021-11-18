@@ -64,7 +64,7 @@ import{t as c,s as r,c as i,a as R,i as l,T as m,L as g,b as d,M as p,r as F}fro
   font-size: 36px;
   margin-top: 0;
   margin-bottom: 1rem;
-`,A=U=>Object.entries(U.cmllCollection).map(([n,t])=>R(w,{get children(){return[R(N,{children:n}),R(M,{get children(){return t.map(s=>R(C,{get name(){return s.name},get algs(){return s.cases}}))}})]}})),S=()=>[R(m,{children:"BigGreen's cool CMLL page"}),R(g,{rel:"icon",type:"image/png",href:"assets/favicon.png"})],$=d`
+`,A=U=>Object.entries(U.cmllCollection).map(([n,t])=>R(w,{get children(){return[R(N,{children:n}),R(M,{get children(){return t.map(s=>R(C,{get name(){return s.name},get algs(){return s.cases}}))}})]}})),S=()=>[R(m,{children:"BigGreen's cool CMLL page"}),R(g,{rel:"icon",type:"image/png",href:"/assets/favicon.png"})],$=d`
   html, body {
     margin: 0;
     padding: 0;
