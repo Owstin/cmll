@@ -1,6 +1,8 @@
 import { Component, createSignal } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
+import { getImageUrl } from './utils';
+
 const Card = styled('div')`
   --elevation-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --elevation-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -75,7 +77,7 @@ const AlgCollection: Component<Props> = props => {
       <Center>
         <AlgImage
           rotation={rotation()}
-          src={`/assets/images/${props.name}.png`}
+          src={getImageUrl(`images/${props.name}.png`)}
           alt={`CMLL ${props.name} image`}
         />
         <AlgList>
