@@ -82,11 +82,13 @@ const AlgCollection: Component<Props> = props => {
         />
         <AlgList>
           {props.algs.map(alg => (
-            <div
-              onmouseenter={() => setRotation(getRotation(alg))}
-              onmouseleave={() => setRotation(0)}
-            >
-              {alg}
+            <div>
+              <span
+                onmouseenter={() => setRotation(getRotation(alg))}
+                onmouseleave={() => setRotation(0)}
+              >
+                {alg}
+              </span>
             </div>
           ))}
         </AlgList>
