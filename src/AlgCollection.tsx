@@ -1,16 +1,13 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal, For, Show } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
-import { getImageUrl } from './utils';
+import { getAssetUrl } from './utils';
 
 const Card = styled('div')`
-  --elevation-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --elevation-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
   min-width: 314px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), var(--elevation-3);
-  border-radius: 6px;
-  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  padding: var(--size-2);
   background-color: white;
 
   &:hover,
@@ -34,14 +31,24 @@ const AlgImage = styled('img')<{ rotation: number }>`
   transform: rotate(${props => props.rotation}deg);
 `;
 
-const AlgList = styled('div')`
-  --gap: 0.5rem;
-  position: relative;
+const AlgList = styled('div')<{ expanded?: boolean }>`
+  --gap: var(--size-2);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
-  @supports (gap: 0.5rem) {
-    gap: 0.5rem;
+  &[expanded~='false'] {
+    max-height: 0;
+    transition: max-height 800ms cubic-bezier(0, 1, 0, 1);
+  }
+
+  &[expanded~='true'] {
+    max-height: 1000px;
+    transition: max-height 1000ms ease-in-out;
+  }
+
+  @supports (gap: var(--gap)) {
+    gap: var(--gap);
   }
 
   @supports not (gap: var(--gap)) {
@@ -70,27 +77,47 @@ interface Props {
 }
 
 const AlgCollection: Component<Props> = props => {
+  const expandable = props.algs.length > 3;
   const [rotation, setRotation] = createSignal(0);
+  const [expanded, setExpanded] = createSignal(false);
   return (
-    <Card>
+    <Card onmouseenter={() => setExpanded(true)} onmouseleave={() => setExpanded(false)}>
       <AlgName>{props.name}</AlgName>
       <Center>
         <AlgImage
           rotation={rotation()}
-          src={getImageUrl(`images/${props.name}.png`)}
+          src={getAssetUrl(`images/${props.name}.png`)}
           alt={`CMLL ${props.name} image`}
         />
         <AlgList>
-          {props.algs.map(alg => (
-            <div>
-              <span
-                onmouseenter={() => setRotation(getRotation(alg))}
-                onmouseleave={() => setRotation(0)}
-              >
-                {alg}
-              </span>
-            </div>
-          ))}
+          <For each={props.algs.slice(0, 3)}>
+            {alg => (
+              <div>
+                <span
+                  onmouseenter={() => setRotation(getRotation(alg))}
+                  onmouseleave={() => setRotation(0)}
+                >
+                  {alg}
+                </span>
+              </div>
+            )}
+          </For>
+          <Show when={expandable}>
+            <AlgList expanded={expanded()}>
+              <For each={props.algs.slice(3)}>
+                {alg => (
+                  <div>
+                    <span
+                      onmouseenter={() => setRotation(getRotation(alg))}
+                      onmouseleave={() => setRotation(0)}
+                    >
+                      {alg}
+                    </span>
+                  </div>
+                )}
+              </For>
+            </AlgList>
+          </Show>
         </AlgList>
       </Center>
     </Card>

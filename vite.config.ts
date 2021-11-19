@@ -9,5 +9,6 @@ export default defineConfig({
     target: 'esnext',
     polyfillDynamicImport: false,
     emptyOutDir: true,
+    assetsInlineLimit: 0,
   },
 });

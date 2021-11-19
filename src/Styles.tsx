@@ -7,13 +7,13 @@ const Styles = createGlobalStyle`
   }
 
   body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
+    font-family: var(--font-sans);
   }
 
   html {
-    font-size: 16px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.10);
+    font-size: var(--size-4);
+    width: var(--size-full);
+    background-color: var(--color-grey-300);
   }
 `;
 

@@ -5,11 +5,11 @@ import AlgCollection from './AlgCollection';
 import { CmllCollection } from './cmll';
 
 const Container = styled('div')`
-  margin-bottom: 1rem;
+  margin-bottom: var(--size-4);
 `;
 
 const Row = styled('div')`
-  --gap: 1rem;
+  --gap: var(--size-4);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@ const Row = styled('div')`
   @supports not (gap: var(--gap)) {
     --neg-gap: calc(-1 * var(--gap));
     margin: var(--neg-gap) 0 0 var(--neg-gap);
-    width: calc(100% + 1rem);
+    width: calc(100% + var(---gap));
 
     & > * {
       margin: var(--gap) 0 0 var(--gap);
@@ -30,9 +30,9 @@ const Row = styled('div')`
 `;
 
 const CollectionName = styled('h1')`
-  font-size: 36px;
+  font-size: var(--size-9);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--size-4);
 `;
 
 interface Props {
