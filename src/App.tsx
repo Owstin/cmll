@@ -1,11 +1,8 @@
 import type { Component } from 'solid-js';
-import { MetaProvider } from 'solid-meta';
 import { styled } from 'solid-styled-components';
 
 import { cmllCollection } from './Cmll';
 import Cmll from './CmllCollection';
-import Head from './Head';
-import Styles from './Styles';
 
 const Container = styled('div')`
   display: flex;
@@ -22,15 +19,11 @@ const Content = styled('div')`
 `;
 
 const App: Component = () => (
-  <MetaProvider>
-    <Head />
-    <Styles />
-    <Container>
-      <Content>
-        <Cmll cmllCollection={cmllCollection} />
-      </Content>
-    </Container>
-  </MetaProvider>
+  <Container>
+    <Content>
+      <Cmll cmllCollection={cmllCollection} />
+    </Content>
+  </Container>
 );
 
 export default App;
