@@ -1,7 +1,7 @@
-import { Component, createContext, createSignal, useContext } from 'solid-js';
+import { Component, createContext, createEffect, createSignal, on, useContext } from 'solid-js';
 import { ThemeProvider } from 'solid-styled-components';
 
-const defaultTheme = {
+const lightTheme = {
   backgroundColor: 'var(--color-white)',
   textColor: 'var(--text-color-black)',
   cardColor: 'var(--color-white)',
@@ -13,7 +13,7 @@ const darkTheme = {
   cardColor: 'var(--color-light-grey)',
 };
 
-type Theme = typeof defaultTheme;
+type Theme = typeof lightTheme;
 
 type Actions = {
   switchTheme: () => void;
@@ -21,14 +21,38 @@ type Actions = {
 
 const ThemeSwitcherContext = createContext<Actions>();
 
+const themeProp = 'theme';
+
+const getInitialTheme = () => {
+  const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const themeName = localStorage.getItem(themeProp);
+
+  return themeName ? themeName : isDark ? 'dark' : 'light';
+};
+
+const selectTheme = (isDark: boolean) => (isDark ? darkTheme : lightTheme);
 const ThemeSwitcher: Component = props => {
-  const [theme, setTheme] = createSignal(darkTheme);
+  const [themeName, setThemeName] = createSignal(getInitialTheme());
+  const [theme, setTheme] = createSignal(selectTheme(themeName() === 'dark'));
+
   const switchTheme = () => {
-    setTheme(darkTheme);
+    setThemeName(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
+
+  createEffect(
+    on(
+      themeName,
+      () => {
+        localStorage.setItem(themeProp, themeName());
+        setTheme(selectTheme(themeName() === 'dark'));
+      },
+      { defer: true }
+    )
+  );
+
   return (
     <ThemeSwitcherContext.Provider value={{ switchTheme }}>
-      <ThemeProvider theme={theme()}>{props.children}</ThemeProvider>
+      <ThemeProvider theme={() => theme()}>{props.children}</ThemeProvider>
     </ThemeSwitcherContext.Provider>
   );
 };
