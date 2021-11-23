@@ -1,4 +1,4 @@
-import type { Accessor, Component, JSX } from 'solid-js';
+import type { Accessor, Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
 import { cmllCollection } from './Cmll';
