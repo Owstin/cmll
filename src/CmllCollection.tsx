@@ -11,8 +11,7 @@ const Container = styled('div')`
 const Row = styled('div')`
   --gap: var(--size-4);
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 
   @supports (gap: var(--gap)) {
     gap: var(--gap);
