@@ -1,4 +1,5 @@
 import { Component, createContext, createEffect, createSignal, on, useContext } from 'solid-js';
+import { Style } from 'solid-meta';
 import { ThemeProvider } from 'solid-styled-components';
 
 const lightTheme = {
@@ -32,6 +33,7 @@ const getInitialTheme = () => {
 };
 
 const selectTheme = (isDark: boolean) => (isDark ? darkTheme : lightTheme);
+
 const ThemeSwitcher: Component = props => {
   const [themeName, setThemeName] = createSignal(getInitialTheme());
   const [theme, setTheme] = createSignal(selectTheme(themeName() === 'dark'));
@@ -55,6 +57,7 @@ const ThemeSwitcher: Component = props => {
     <ThemeSwitcherContext.Provider
       value={{ switchTheme, isDarkTheme: () => themeName() === 'dark' }}
     >
+      <Style type="text/css">{`:root { color-scheme: ${themeName()} }`}</Style>
       <ThemeProvider theme={() => theme()}>{props.children}</ThemeProvider>
     </ThemeSwitcherContext.Provider>
   );
