@@ -22,15 +22,13 @@ const Content = styled('div')`
   }
 `;
 
-const App: Component = () => {
-  return (
-    <Container>
-      <Nav />
-      <Content>
-        <Cmll cmllCollection={cmllCollection} />
-      </Content>
-    </Container>
-  );
-};
+const App: Component = () => (
+  <Container>
+    <Nav />
+    <Content>
+      <Cmll cmllCollection={cmllCollection} />
+    </Content>
+  </Container>
+);
 
 export default App;

@@ -23,7 +23,7 @@ const Center = styled('div')`
   align-items: center;
 `;
 
-const AlgName = styled('h3')`
+const AlgName = styled('h2')`
   margin: 0;
 `;
 
@@ -101,6 +101,8 @@ const AlgCollection: Component<Props> = props => {
           rotation={rotation()}
           src={getAssetUrl(`images/${props.name}.png`)}
           alt={`CMLL ${props.name} image`}
+          width="200"
+          height="200"
         />
         <AlgList>
           <For each={props.algs.slice(0, 3)}>
