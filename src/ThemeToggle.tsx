@@ -5,7 +5,7 @@ import sunny from './assets/images/sunny.png?url';
 import night from './assets/images/night.png?url';
 
 /**
- * Images and inpiration from Musthaq Ahamad (@haxzie_)
+ * Images and inspiration from Musthaq Ahamad (@haxzie_)
  * https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2
  */
 const Toggle = styled('div')`

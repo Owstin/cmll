@@ -15,7 +15,8 @@ const Container = styled('div')`
 `;
 
 const Content = styled('div')`
-  margin: 0 var(--size-10);
+  margin: var(--size-10);
+  margin-top: 0;
 
   @media only screen and (min-width: 1440px) {
     max-width: 1440px;
