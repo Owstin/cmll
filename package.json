@@ -7,7 +7,9 @@
     "build": "vite build",
     "serve": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "lint": "npx eslint --ext=ts,tsx src",
+    "prettier": "npx prettier --write src"
   },
   "license": "MIT",
   "devDependencies": {
