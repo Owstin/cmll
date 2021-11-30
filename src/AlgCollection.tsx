@@ -10,6 +10,7 @@ const Card = styled('div')`
   border-radius: var(--radius-sm);
   padding: var(--size-2);
   background-color: ${props => (props.theme as Accessor<Theme>)().cardColor};
+  transition: background-color var(--theme-transition);
 
   &:hover,
   &:focus {

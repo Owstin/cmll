@@ -11,12 +11,12 @@ import night from './assets/images/night.png?url';
 const Toggle = styled('div')`
   --track-width: 50px;
   --track-height: 24px;
-  --track-on: #2196f3;
-  --track-off: hsl(0, 0%, 65%);
+  --track-on: var(--color-blue-500);
+  --track-off: var(--color-grey-300);
 
   --thumb-size: 36px;
   --thumb-on: var(--color-white);
-  --thumb-off: hsl(0, 0%, 40%);
+  --thumb-off: var(--color-grey-500);
 
   --h-pad: 2px;
   --slide-width: calc(var(--track-width) - var(--thumb-size) + var(--h-pad));

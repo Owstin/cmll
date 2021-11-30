@@ -1,8 +1,15 @@
 :root {
   --color-white: #fff;
-  --color-grey: hsl(0, 0%, 17%);
-  --color-light-grey: hsl(0, 0%, 25%);
+
+  --color-grey-800: hsl(0, 0%, 17%);
+  --color-grey-700: hsl(0, 0%, 25%);
+  --color-grey-500: hsl(0, 0%, 40%);
+  --color-grey-300: hsl(0, 0%, 65%);
+
+  --color-blue-500: hsl(213, 91%, 60%);
 
   --text-color-black: rgba(0, 0, 0, 0.87);
   --text-color-white: rgba(255, 255, 255, 0.87);
+
+  --theme-transition: 250ms;
 }

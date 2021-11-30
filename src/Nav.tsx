@@ -23,6 +23,7 @@ const Content = styled('div')`
   justify-content: space-between;
   padding: 0 var(--size-4);
   width: 100%;
+  height: 100%;
 
   @media only screen and (min-width: 400px) {
     padding: 0 var(--size-10);
@@ -36,6 +37,7 @@ const Content = styled('div')`
 const NavTitle = styled('h1')`
   color: var(--text-color-white);
   cursor: default;
+  margin: 0;
 `;
 
 const rainbowAnimation = keyframes`
@@ -60,6 +62,7 @@ const rainbowSlide = css`
       hsl(0, 75%, 60%)
     );
     animation: ${rainbowAnimation} 1000ms linear infinite;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%;

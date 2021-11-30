@@ -4,14 +4,14 @@ import { ThemeProvider } from 'solid-styled-components';
 
 const lightTheme = {
   backgroundColor: 'var(--color-white)',
-  textColor: 'var(--text-color-black)',
   cardColor: 'var(--color-white)',
+  textColor: 'var(--text-color-black)',
 };
 
 const darkTheme = {
-  backgroundColor: 'var(--color-grey)',
+  backgroundColor: 'var(--color-grey-800)',
+  cardColor: 'var(--color-grey-700)',
   textColor: 'var(--text-color-white)',
-  cardColor: 'var(--color-light-grey)',
 };
 
 type Theme = typeof lightTheme;
