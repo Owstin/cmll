@@ -1,30 +1,27 @@
 import { Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
-import sunny from './assets/images/sunny.png?url';
-import night from './assets/images/night.png?url';
-
 /**
- * Images and inspiration from Musthaq Ahamad (@haxzie_)
- * https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2
+ * Ideas and inspiration from react-toggle
+ * http://aaronshaf.github.io/react-toggle/
  */
 const Toggle = styled('div')`
   --track-width: 50px;
   --track-height: 24px;
   --track-on: var(--color-blue-500);
-  --track-off: var(--color-grey-300);
+  --track-off: var(--color-grey-500);
 
-  --thumb-size: 36px;
-  --thumb-on: var(--color-white);
-  --thumb-off: var(--color-grey-500);
-
-  --h-pad: 2px;
-  --slide-width: calc(var(--track-width) - var(--thumb-size) + var(--h-pad));
+  --thumb-size: 22px;
+  --thumb-color: var(--color-grey-100);
 
   position: relative;
   display: inline-block;
-  width: calc(var(--track-width) + var(--h-pad));
-  height: var(--thumb-size);
+  width: var(--track-width);
+  height: var(--track-height);
+
+  * {
+    box-sizing: border-box;
+  }
 
   .track,
   .thumb {
@@ -32,22 +29,36 @@ const Toggle = styled('div')`
     transition: inherit;
   }
 
+  .sun {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+  }
+
+  .moon {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+
   .thumb {
-    position: relative;
+    position: absolute;
+    top: 1px;
+    left: 1px;
     width: var(--thumb-size);
     height: var(--thumb-size);
-    transition: transform 400ms, background 400ms;
-    box-shadow: var(--elevation-3);
+    border: 1px solid var(--color-grey-500);
     border-radius: 50%;
+    background-color: var(--thumb-color);
+    transition: left var(--theme-transition);
   }
 
   .track {
-    position: absolute;
-    top: calc((var(--thumb-size) - var(--track-height)) / 2);
-    left: calc(var(--h-pad) / 2);
     width: var(--track-width);
     height: var(--track-height);
     border-radius: var(--track-height);
+    background-color: var(--track-off);
+    transition: background-color var(--theme-transition), border-color var(--theme-transition);
   }
 
   input {
@@ -59,22 +70,9 @@ const Toggle = styled('div')`
     cursor: pointer;
     user-select: none;
 
-    & ~ .thumb {
-      transform: translate(0);
-      background: var(--thumb-off) url(${night});
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    & ~ .track {
-      background-color: var(--track-off);
-    }
-
     &:checked ~ .thumb {
-      transform: translate(var(--slide-width));
-      background: var(--thumb-on) url(${sunny});
-      background-repeat: no-repeat;
-      background-position: center;
+      left: 27px;
+      border-color: var(--track-on);
     }
 
     &:checked ~ .track {
@@ -96,7 +94,10 @@ const ThemeToggle: Component<Props> = props => (
       onchange={() => props.toggleTheme()}
       checked={props.checked}
     />
-    <div class="track" />
+    <div class="track">
+      <span class="sun">☀️</span>
+      <span class="moon">🌙</span>
+    </div>
     <div class="thumb" />
   </Toggle>
 );
