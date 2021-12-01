@@ -5,12 +5,14 @@ import { ThemeProvider } from 'solid-styled-components';
 const lightTheme = {
   backgroundColor: 'var(--color-white)',
   cardColor: 'var(--color-white)',
+  navColor: 'var(--color-white)',
   textColor: 'var(--text-color-black)',
 };
 
 const darkTheme = {
   backgroundColor: 'var(--color-grey-800)',
   cardColor: 'var(--color-grey-700)',
+  navColor: 'var(--color-green-500)',
   textColor: 'var(--text-color-white)',
 };
 
