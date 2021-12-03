@@ -4,7 +4,7 @@ import { styled } from 'solid-styled-components';
 import { Theme } from './ThemeSwitcher';
 import { cmllCollection } from './Cmll';
 import Cmll from './CmllCollection';
-import Nav from './Nav';
+import Header from './Header';
 
 const Container = styled('div')`
   display: flex;
@@ -15,7 +15,7 @@ const Container = styled('div')`
   transition: color var(--theme-transition), background-color var(--theme-transition);
 `;
 
-const Content = styled('div')`
+const Content = styled('main')`
   margin: var(--size-10);
   margin-top: 0;
 
@@ -26,7 +26,7 @@ const Content = styled('div')`
 
 const App: Component = () => (
   <Container>
-    <Nav />
+    <Header />
     <Content>
       <Cmll cmllCollection={cmllCollection} />
     </Content>

@@ -4,7 +4,7 @@ import { styled } from 'solid-styled-components';
 import AlgCollection from './AlgCollection';
 import { CmllCollection } from './cmll';
 
-const Container = styled('div')`
+const Container = styled('section')`
   margin-bottom: var(--size-4);
 `;
 
@@ -14,7 +14,7 @@ const Row = styled('div')`
   flex-flow: row wrap;
 
   > * {
-    flex: 1 0 314px;
+    flex: 1 0 var(--size-80);
   }
 
   @supports (gap: var(--gap)) {

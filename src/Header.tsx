@@ -4,7 +4,7 @@ import { css, keyframes, styled } from 'solid-styled-components';
 import { Theme, useThemeSwitcher } from './ThemeSwitcher';
 import ThemeToggle from './ThemeToggle';
 
-const SitckyNav = styled('nav')`
+const SitckyHeader = styled('header')`
   position: sticky;
   top: 0;
   height: 48px;
@@ -22,12 +22,12 @@ const Content = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--size-4);
+  margin: 0 var(--size-4);
   width: 100%;
   height: 100%;
 
   @media only screen and (min-width: 400px) {
-    padding: 0 var(--size-10);
+    margin: 0 var(--size-10);
   }
 
   @media only screen and (min-width: 1440px) {
@@ -35,9 +35,9 @@ const Content = styled('div')`
   }
 `;
 
-const NavTitle = styled('h1')`
+const Title = styled('h1')`
+  font-size: var(--scale-3);
   cursor: default;
-  margin: 0;
 `;
 
 const rainbowAnimation = keyframes`
@@ -72,12 +72,12 @@ const rainbowSlide = css`
 const Nav: Component = () => {
   const { switchTheme, isDarkTheme } = useThemeSwitcher();
   return (
-    <SitckyNav>
+    <SitckyHeader>
       <Content>
-        <NavTitle className={rainbowSlide}>BigGreen's Cool Algs</NavTitle>
+        <Title className={rainbowSlide}>BigGreen's Cool Algs</Title>
         <ThemeToggle toggleTheme={switchTheme} checked={!isDarkTheme()} />
       </Content>
-    </SitckyNav>
+    </SitckyHeader>
   );
 };
 

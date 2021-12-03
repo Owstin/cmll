@@ -19,10 +19,6 @@ const Toggle = styled('div')`
   width: var(--track-width);
   height: var(--track-height);
 
-  * {
-    box-sizing: border-box;
-  }
-
   .track,
   .thumb {
     pointer-events: none;

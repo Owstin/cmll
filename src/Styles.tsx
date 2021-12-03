@@ -3,18 +3,23 @@ import 'pollen-css';
 import './variables.css';
 
 const Styles = createGlobalStyle`
-  html, body {
-    margin: 0;
-    padding: 0;
+  html {
+    font-size: var(--size-4);
+    width: var(--size-full);
+    box-sizing: border-box;
   }
-
+  
   body {
     font-family: var(--font-sans);
   }
 
-  html {
-    font-size: var(--size-4);
-    width: var(--size-full);
+  *, *:before, *:after {
+    box-sizing: inherit;
+  } 
+
+  * {
+    margin: 0;
+    padding: 0;
   }
 `;
 

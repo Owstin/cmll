@@ -5,6 +5,9 @@ import { Theme } from './ThemeSwitcher';
 import { getAssetUrl } from './utils';
 
 const Card = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), var(--elevation-3);
   border-radius: var(--radius-sm);
   padding: var(--size-2);
@@ -17,13 +20,9 @@ const Card = styled('div')`
   }
 `;
 
-const Center = styled('div')`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const AlgName = styled('h2')`
+  display: flex;
+  align-self: flex-start;
   margin: 0;
 `;
 
@@ -96,45 +95,43 @@ const AlgCollection: Component<Props> = props => {
   return (
     <Card onmouseenter={() => setExpanded(true)} onmouseleave={() => setExpanded(false)}>
       <AlgName>{props.name}</AlgName>
-      <Center>
-        <AlgImage
-          rotation={rotation()}
-          src={getAssetUrl(`images/${props.name}.png`)}
-          alt={`CMLL ${props.name} image`}
-          width="200"
-          height="200"
-        />
-        <AlgList>
-          <For each={props.algs.slice(0, 3)}>
-            {alg => (
-              <div>
-                <span
-                  onmouseenter={() => setRotation(getRotation(alg))}
-                  onmouseleave={() => setRotation()}
-                >
-                  {alg}
-                </span>
-              </div>
-            )}
-          </For>
-          <Show when={expandable}>
-            <AlgList expanded={expanded()}>
-              <For each={props.algs.slice(3)}>
-                {alg => (
-                  <div>
-                    <span
-                      onmouseenter={() => setRotation(getRotation(alg))}
-                      onmouseleave={() => setRotation()}
-                    >
-                      {alg}
-                    </span>
-                  </div>
-                )}
-              </For>
-            </AlgList>
-          </Show>
-        </AlgList>
-      </Center>
+      <AlgImage
+        rotation={rotation()}
+        src={getAssetUrl(`images/${props.name}.png`)}
+        alt={`CMLL ${props.name} image`}
+        width="200"
+        height="200"
+      />
+      <AlgList>
+        <For each={props.algs.slice(0, 3)}>
+          {alg => (
+            <div>
+              <span
+                onmouseenter={() => setRotation(getRotation(alg))}
+                onmouseleave={() => setRotation()}
+              >
+                {alg}
+              </span>
+            </div>
+          )}
+        </For>
+        <Show when={expandable}>
+          <AlgList expanded={expanded()}>
+            <For each={props.algs.slice(3)}>
+              {alg => (
+                <div>
+                  <span
+                    onmouseenter={() => setRotation(getRotation(alg))}
+                    onmouseleave={() => setRotation()}
+                  >
+                    {alg}
+                  </span>
+                </div>
+              )}
+            </For>
+          </AlgList>
+        </Show>
+      </AlgList>
     </Card>
   );
 };
