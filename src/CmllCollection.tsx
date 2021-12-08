@@ -33,12 +33,11 @@ const Row = styled('div')`
 `;
 
 const Hidden = styled('div')`
-  visibility: hidden;
-  padding: var(--size-2);
+  visibility: collapse;
 `;
 
 const CollectionName = styled('h1')`
-  font-size: var(--size-9);
+  font-size: var(--scale-5);
   margin-top: 0;
   margin-bottom: var(--size-4);
 `;
@@ -47,13 +46,17 @@ interface Props {
   cmllCollection: CmllCollection;
 }
 
+const rowItems = 4;
+
 const Cmll: Component<Props> = props =>
   Object.entries(props.cmllCollection).map(([name, collection]) => (
     <Container>
       <CollectionName>{name}</CollectionName>
       <Row>
         <For each={collection}>{alg => <AlgCollection name={alg.name} algs={alg.cases} />}</For>
-        <For each={new Array(4 - (collection.length % 4)).fill(0)}>{() => <Hidden />}</For>
+        <For each={new Array(rowItems - (collection.length % rowItems)).fill(0)}>
+          {() => <Hidden />}
+        </For>
       </Row>
     </Container>
   ));

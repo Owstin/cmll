@@ -1,16 +1,14 @@
 {
+  "root": true,
+  "env": {
+    "es2020": true,
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/internal-regex": "^$public/"
+  },
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "prettier",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:testing-library/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
-  ],
-  "plugins": ["import"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -19,6 +17,16 @@
     },
     "project": "./tsconfig.json"
   },
+  "plugins": ["@typescript-eslint/eslint-plugin", "import", "solid", "jsx-a11y", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:solid/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
     "import/order": [
       "error",
@@ -26,14 +34,7 @@
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "newlines-between": "always"
       }
-    ]
-  },
-  "settings": {
-    "import/internal-regex": "^$public/"
-  },
-  "env": {
-    "es2020": true,
-    "browser": true,
-    "jest": true
+    ],
+    "solid/no-react-specific-props": "off"
   }
 }
