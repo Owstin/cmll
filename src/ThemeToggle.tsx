@@ -1,5 +1,5 @@
 import { Component } from 'solid-js';
-import { styled } from 'solid-styled-components';
+import { css, styled } from 'solid-styled-components';
 
 /**
  * Ideas and inspiration from react-toggle
@@ -23,18 +23,6 @@ const Toggle = styled('div')`
   .thumb {
     pointer-events: none;
     transition: inherit;
-  }
-
-  .sun {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-  }
-
-  .moon {
-    position: absolute;
-    top: 1px;
-    right: 1px;
   }
 
   .thumb {
@@ -77,6 +65,36 @@ const Toggle = styled('div')`
   }
 `;
 
+const TrackLeft = css`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  line-height: 0;
+  width: 10px;
+  height: 10px;
+  left: 8px;
+`;
+
+const TrackRight = css`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  line-height: 0;
+  width: 10px;
+  height: 10px;
+  right: 8px;
+`;
+
+const TrackIcon = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+`;
+
 interface Props {
   toggleTheme: () => void;
   checked: boolean;
@@ -91,8 +109,12 @@ const ThemeToggle: Component<Props> = props => (
       checked={props.checked}
     />
     <div class="track">
-      <span class="sun">☀️</span>
-      <span class="moon">🌙</span>
+      <div class={TrackLeft}>
+        <span class={TrackIcon}>☀️</span>
+      </div>
+      <div class={TrackRight}>
+        <span class={TrackIcon}>🌙</span>
+      </div>
     </div>
     <div class="thumb" />
   </Toggle>
