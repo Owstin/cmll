@@ -73,7 +73,7 @@ const TrackLeft = css`
   line-height: 0;
   width: 10px;
   height: 10px;
-  left: 8px;
+  left: 7px;
 `;
 
 const TrackRight = css`
@@ -84,7 +84,7 @@ const TrackRight = css`
   line-height: 0;
   width: 10px;
   height: 10px;
-  right: 8px;
+  right: 7px;
 `;
 
 const TrackIcon = css`

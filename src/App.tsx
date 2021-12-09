@@ -2,7 +2,7 @@ import type { Accessor, Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
 import { Theme } from './ThemeSwitcher';
-import { cmllCollection } from './Cmll';
+import { cmllCollection } from './cmll';
 import Cmll from './CmllCollection';
 import Header from './Header';
 
