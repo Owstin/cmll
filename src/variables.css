@@ -11,6 +11,9 @@
 
   --color-green-500: hsl(140deg, 70%, 30%);
 
+  --color-yellow-300: hsl(46, 96%, 64%);
+  --color-yellow-500: hsl(45, 93%, 47%);
+
   --text-color-black: rgba(0, 0, 0, 0.87);
   --text-color-white: rgba(255, 255, 255, 0.87);
 

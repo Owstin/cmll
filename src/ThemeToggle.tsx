@@ -1,5 +1,7 @@
 import { Component } from 'solid-js';
 import { css, styled } from 'solid-styled-components';
+import { IoSunny } from 'solid-icons/io';
+import { IoMoon } from 'solid-icons/io';
 
 /**
  * Ideas and inspiration from react-toggle
@@ -95,6 +97,10 @@ const TrackIcon = css`
   height: 10px;
 `;
 
+const FlipH = css`
+  transform: scale(-1, 1);
+`;
+
 interface Props {
   toggleTheme: () => void;
   checked: boolean;
@@ -110,10 +116,14 @@ const ThemeToggle: Component<Props> = props => (
     />
     <div class="track">
       <div class={TrackLeft}>
-        <span class={TrackIcon}>☀️</span>
+        <span class={TrackIcon}>
+          <IoSunny size={18} color="var(--color-yellow-500)" />
+        </span>
       </div>
       <div class={TrackRight}>
-        <span class={TrackIcon}>🌙</span>
+        <span class={TrackIcon}>
+          <IoMoon size={18} color="var(--color-yellow-300)" className={FlipH} />
+        </span>
       </div>
     </div>
     <div class="thumb" />
