@@ -1,4 +1,5 @@
 import { render } from 'solid-js/web';
+import { Router } from 'solid-app-router';
 import { MetaProvider } from 'solid-meta';
 import { setup } from 'solid-styled-components';
 
@@ -12,13 +13,15 @@ setup(prefixer);
 
 render(
   () => (
-    <MetaProvider>
-      <ThemeSwitcher>
-        <Head />
-        <Styles />
-        <App />
-      </ThemeSwitcher>
-    </MetaProvider>
+    <Router>
+      <MetaProvider>
+        <ThemeSwitcher>
+          <Head />
+          <Styles />
+          <App />
+        </ThemeSwitcher>
+      </MetaProvider>
+    </Router>
   ),
   document.getElementById('root')
 );

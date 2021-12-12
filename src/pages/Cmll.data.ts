@@ -1,3 +1,5 @@
+import { RouteDataFunc } from 'solid-app-router';
+
 export interface Alg {
   name: string;
   cases: string[];
@@ -5,9 +7,9 @@ export interface Alg {
 
 type CollectionNames = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h';
 
-export type CmllCollection = Record<CollectionNames, Alg[]>;
+export type CmllData = Record<CollectionNames, Alg[]>;
 
-export const cmllCollection: CmllCollection = {
+export const CmllData: RouteDataFunc<CmllData> = () => ({
   a: [
     {
       name: 'a3',
@@ -219,4 +221,4 @@ export const cmllCollection: CmllCollection = {
       cases: ["(U) F R U R' U' R U R' U' R U R' U' F'"],
     },
   ],
-};
+});

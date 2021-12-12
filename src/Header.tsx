@@ -10,7 +10,7 @@ const SitckyHeader = styled('header')`
   height: 48px;
   width: 100%;
   background-color: ${props => (props.theme as Accessor<Theme>)().navColor};
-  z-index: 1;
+  z-index: var(--layer-1);
   box-shadow: var(--elevation-3);
   display: flex;
   align-items: center;

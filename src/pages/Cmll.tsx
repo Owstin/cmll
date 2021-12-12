@@ -1,8 +1,10 @@
+import { useData } from 'solid-app-router';
 import { Component, For } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
-import AlgCollection from './AlgCollection';
-import { CmllCollection } from './cmll';
+import AlgCollection from '../AlgCollection';
+
+import { CmllData } from './Cmll.data';
 
 const Container = styled('section')`
   margin-bottom: var(--size-4);
@@ -42,14 +44,11 @@ const CollectionName = styled('h1')`
   margin-bottom: var(--size-4);
 `;
 
-interface Props {
-  cmllCollection: CmllCollection;
-}
-
 const rowItems = 4;
 
-const Cmll: Component<Props> = props =>
-  Object.entries(props.cmllCollection).map(([name, collection]) => (
+const Cmll: Component = () => {
+  const cmllData = useData<CmllData>();
+  return Object.entries(cmllData).map(([name, collection]) => (
     <Container>
       <CollectionName>{name}</CollectionName>
       <Row>
@@ -60,5 +59,6 @@ const Cmll: Component<Props> = props =>
       </Row>
     </Container>
   ));
+};
 
 export default Cmll;
