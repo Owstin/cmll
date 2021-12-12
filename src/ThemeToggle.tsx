@@ -10,7 +10,7 @@ import { IoMoon } from 'solid-icons/io';
 const Toggle = styled('div')`
   --track-width: 50px;
   --track-height: 24px;
-  --track-on: var(--color-blue-500);
+  --track-on: var(--color-blue);
   --track-off: var(--color-grey-500);
 
   --thumb-size: 22px;
@@ -117,12 +117,12 @@ const ThemeToggle: Component<Props> = props => (
     <div class="track">
       <div class={TrackLeft}>
         <span class={TrackIcon}>
-          <IoSunny size={18} color="var(--color-yellow-500)" />
+          <IoSunny size={18} color="var(--color-sun)" />
         </span>
       </div>
       <div class={TrackRight}>
         <span class={TrackIcon}>
-          <IoMoon size={18} color="var(--color-yellow-300)" className={FlipH} />
+          <IoMoon size={18} color="var(--color-moon)" className={FlipH} />
         </span>
       </div>
     </div>

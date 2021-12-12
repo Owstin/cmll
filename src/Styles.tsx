@@ -1,6 +1,5 @@
 import { createGlobalStyles as createGlobalStyle } from 'solid-styled-components';
-import 'pollen-css';
-import './variables.css';
+import './assets/pollen/pollen.css';
 
 const Styles = createGlobalStyle`
   html {

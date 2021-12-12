@@ -12,7 +12,7 @@ const lightTheme = {
 const darkTheme = {
   backgroundColor: 'var(--color-grey-800)',
   cardColor: 'var(--color-grey-700)',
-  navColor: 'var(--color-green-500)',
+  navColor: 'var(--color-green)',
   textColor: 'var(--text-color-white)',
 };
 
