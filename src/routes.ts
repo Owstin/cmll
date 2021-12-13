@@ -5,7 +5,7 @@ import { CmllData } from './pages/Cmll.data';
 
 export const routes: RouteDefinition[] = [
   {
-    path: '/cmll',
+    path: '/',
     component: lazy(() => import('./pages/Cmll')),
     data: CmllData,
   },

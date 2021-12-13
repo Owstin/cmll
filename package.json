@@ -37,7 +37,7 @@
     "vite-plugin-solid": "^2.1.4"
   },
   "dependencies": {
-    "pollen-css": "^4.1.1",
+    "pollen-css": "^4.2.0",
     "solid-app-router": "^0.1.14",
     "solid-icons": "^0.3.2",
     "solid-js": "^1.2.6",

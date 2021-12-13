@@ -13,7 +13,7 @@ setup(prefixer);
 
 render(
   () => (
-    <Router>
+    <Router base={import.meta.env.BASE_URL}>
       <MetaProvider>
         <ThemeSwitcher>
           <Head />
