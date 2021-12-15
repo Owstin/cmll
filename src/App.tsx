@@ -6,10 +6,10 @@ import { Theme } from './ThemeSwitcher';
 import Header from './Header';
 import { routes } from './routes';
 
-const Container = styled('div')`
+const PageContainer = styled('div')`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   background-color: ${props => (props.theme as Accessor<Theme>)().backgroundColor};
   color: ${props => (props.theme as Accessor<Theme>)().textColor};
@@ -17,6 +17,7 @@ const Container = styled('div')`
 `;
 
 const Content = styled('main')`
+  padding-top: var(--header-height);
   margin: var(--size-10);
   margin-top: 0;
 
@@ -28,12 +29,14 @@ const Content = styled('main')`
 const App: Component = () => {
   const Routes = useRoutes(routes);
   return (
-    <Container>
-      <Header />
-      <Content>
-        <Routes />
-      </Content>
-    </Container>
+    <>
+      <PageContainer>
+        <Header />
+        <Content>
+          <Routes />
+        </Content>
+      </PageContainer>
+    </>
   );
 };
 
