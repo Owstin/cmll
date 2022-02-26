@@ -1,7 +1,6 @@
-import { Accessor, Component, createSignal, For, Show } from 'solid-js';
+import { Component, createSignal, For, Show } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
-import { Theme } from './ThemeSwitcher';
 import { getAssetUrl } from './utils';
 
 const Card = styled('div')`
@@ -11,7 +10,7 @@ const Card = styled('div')`
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), var(--elevation-3);
   border-radius: var(--radius-sm);
   padding: var(--size-2);
-  background-color: ${props => (props.theme as Accessor<Theme>)().cardColor};
+  background-color: ${props => props.theme().cardColor};
   transition: background-color var(--theme-transition);
 
   &:hover,

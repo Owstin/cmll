@@ -17,41 +17,43 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
-    "@vitejs/plugin-legacy": "^1.6.4",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "@vitejs/plugin-legacy": "^1.7.1",
     "babel-plugin-transform-goober": "^1.2.0",
-    "colord": "^2.9.1",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-compat": "^4.0.0",
+    "colord": "^2.9.2",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-solid": "^0.2.0",
+    "eslint-plugin-solid": "^0.4.4",
     "gh-pages": "^3.2.3",
-    "husky": "^7.0.0",
-    "lint-staged": "^12.1.2",
-    "prettier": "^2.2.1",
-    "typescript": "^4.5.3",
-    "vite": "^2.7.1",
-    "vite-plugin-html": "^2.1.1",
-    "vite-plugin-solid": "^2.1.4"
+    "husky": "^7.0.4",
+    "nano-staged": "^0.6.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5",
+    "vite": "^2.8.4",
+    "vite-plugin-html": "^3.0.6",
+    "vite-plugin-solid": "^2.2.5"
   },
   "dependencies": {
     "pollen-css": "^4.2.0",
-    "solid-app-router": "^0.1.14",
-    "solid-icons": "^0.3.2",
-    "solid-js": "^1.2.6",
-    "solid-meta": "^0.27.2",
-    "solid-styled-components": "^0.27.3",
-    "style-vendorizer": "^2.1.1"
+    "solid-app-router": "^0.3.0",
+    "solid-icons": "^0.3.3",
+    "solid-js": "^1.3.7",
+    "solid-meta": "^0.27.3",
+    "solid-styled-components": "^0.27.6",
+    "style-vendorizer": "^2.1.1",
+    "csstype": "2.6.2",
+    "goober": "2.1.7"
   },
-  "lint-staged": {
-    "*.(ts|tsx|cjs|json|md)": [
+  "nano-staged": {
+    "*.{ts,tsx,cjs,json,md}": [
       "npx prettier --write"
     ],
-    "*.(ts|tsx)": [
+    "*.{ts,tsx}": [
       "npx eslint --fix"
     ]
   },
