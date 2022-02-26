@@ -5,7 +5,7 @@ import { useRoutes } from 'solid-app-router';
 import Header from './Header';
 import { routes } from './routes';
 
-const PageContainer = styled('div')`
+const PageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@ const PageContainer = styled('div')`
   transition: color var(--theme-transition), background-color var(--theme-transition);
 `;
 
-const Content = styled('main')`
+const Content = styled.main`
   padding-top: var(--header-height);
   margin: var(--size-10);
   margin-top: 0;

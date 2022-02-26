@@ -4,7 +4,7 @@ import { css, keyframes, styled } from 'solid-styled-components';
 import { useThemeSwitcher } from './ThemeSwitcher';
 import ThemeToggle from './ThemeToggle';
 
-const SitckyHeader = styled('header')`
+const SitckyHeader = styled.header`
   position: fixed;
   top: 0;
   height: var(--header-height);
@@ -18,7 +18,7 @@ const SitckyHeader = styled('header')`
   transition: background-color var(--theme-transition);
 `;
 
-const Content = styled('div')`
+const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +35,7 @@ const Content = styled('div')`
   }
 `;
 
-const Title = styled('h1')`
+const Title = styled.h1`
   font-size: var(--scale-3);
   cursor: default;
 `;
