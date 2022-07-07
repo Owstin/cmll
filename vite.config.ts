@@ -22,13 +22,8 @@ export default defineConfig({
       },
       pages: [
         {
-          entry: 'src/index.tsx',
           filename: 'index.html',
           template: '/index.html',
-        },
-        {
-          filename: '404.html',
-          template: '/404.html',
         },
       ],
     }),
