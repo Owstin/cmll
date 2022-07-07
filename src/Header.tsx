@@ -74,7 +74,7 @@ const Nav: Component = () => {
   return (
     <SitckyHeader>
       <Content>
-        <Title className={rainbowSlide}>BigGreen's Cool Algs</Title>
+        <Title class={rainbowSlide}>BigGreen's Cool Algs</Title>
         <ThemeToggle toggleTheme={switchTheme} checked={!isDarkTheme()} />
       </Content>
     </SitckyHeader>

@@ -1,4 +1,12 @@
-import { Component, createContext, createEffect, createSignal, on, useContext } from 'solid-js';
+import {
+  Component,
+  createContext,
+  createEffect,
+  createSignal,
+  JSXElement,
+  on,
+  useContext,
+} from 'solid-js';
 import { Style } from 'solid-meta';
 import { ThemeProvider } from 'solid-styled-components';
 
@@ -21,7 +29,14 @@ type Actions = {
   isDarkTheme: () => boolean;
 };
 
-const ThemeSwitcherContext = createContext<Actions>();
+const ThemeSwitcherContext = createContext<Actions>({
+  switchTheme() {
+    return undefined;
+  },
+  isDarkTheme() {
+    return false;
+  },
+});
 
 const themeProp = 'theme';
 
@@ -34,7 +49,7 @@ const getInitialTheme = () => {
 
 const selectTheme = (isDark: boolean) => (isDark ? darkTheme : lightTheme);
 
-const ThemeSwitcher: Component = props => {
+const ThemeSwitcher: Component<{ children?: JSXElement }> = props => {
   const [themeName, setThemeName] = createSignal(getInitialTheme());
   const [theme, setTheme] = createSignal(selectTheme(themeName() === 'dark'));
 
