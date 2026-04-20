@@ -21,8 +21,12 @@ const Content = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 var(--size-10);
+  padding: 0 var(--size-4);
   width: 100%;
+
+  @media only screen and (min-width: 400px) {
+    padding: 0 var(--size-10);
+  }
 
   @media only screen and (min-width: 1440px) {
     max-width: 1440px;
