@@ -9,4 +9,8 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Cmll')),
     data: CmllData,
   },
+  {
+    path: '/*all',
+    component: lazy(() => import('./pages/404')),
+  },
 ];

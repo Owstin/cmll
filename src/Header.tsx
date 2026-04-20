@@ -5,9 +5,9 @@ import { Theme, useThemeSwitcher } from './ThemeSwitcher';
 import ThemeToggle from './ThemeToggle';
 
 const SitckyHeader = styled('header')`
-  position: sticky;
+  position: fixed;
   top: 0;
-  height: 48px;
+  height: var(--header-height);
   width: 100%;
   background-color: ${props => (props.theme as Accessor<Theme>)().navColor};
   z-index: var(--layer-1);

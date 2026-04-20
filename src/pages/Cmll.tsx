@@ -48,17 +48,21 @@ const rowItems = 4;
 
 const Cmll: Component = () => {
   const cmllData = useData<CmllData>();
-  return Object.entries(cmllData).map(([name, collection]) => (
-    <Container>
-      <CollectionName>{name}</CollectionName>
-      <Row>
-        <For each={collection}>{alg => <AlgCollection name={alg.name} algs={alg.cases} />}</For>
-        <For each={new Array(rowItems - (collection.length % rowItems)).fill(0)}>
-          {() => <Hidden />}
-        </For>
-      </Row>
-    </Container>
-  ));
+  return (
+    <For each={Object.entries(cmllData)}>
+      {([name, collection]) => (
+        <Container>
+          <CollectionName>{name}</CollectionName>
+          <Row>
+            <For each={collection}>{alg => <AlgCollection name={alg.name} algs={alg.cases} />}</For>
+            <For each={new Array(rowItems - (collection.length % rowItems)).fill(0)}>
+              {() => <Hidden />}
+            </For>
+          </Row>
+        </Container>
+      )}
+    </For>
+  );
 };
 
 export default Cmll;
