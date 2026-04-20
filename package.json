@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
+    "predev": "pollen",
     "dev": "vite",
+    "prebuild": "pollen",
     "build": "vite build",
     "serve": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "lint": "npx eslint --ext=ts,tsx .",
-    "lint:fix": "npx eslint --ext=ts,tsx --fix .",
-    "prettier": "npx prettier --write .",
+    "lint": "eslint --ext=ts,tsx .",
+    "lint:fix": "eslint --ext=ts,tsx --fix .",
+    "prettier": "prettier --write .",
     "prepare": "husky install"
   },
   "license": "MIT",
@@ -44,7 +46,7 @@
     "style-vendorizer": "^2.1.1"
   },
   "lint-staged": {
-    "*.(ts|tsx|json|md)": [
+    "*.(ts|tsx|cjs|json|md)": [
       "npx prettier --write"
     ],
     "*.(ts|tsx)": [
