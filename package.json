@@ -31,6 +31,7 @@
     "pollen-css": "^3.1.1",
     "solid-js": "^1.2.3",
     "solid-meta": "^0.27.2",
-    "solid-styled-components": "^0.27.3"
+    "solid-styled-components": "^0.27.3",
+    "style-vendorizer": "^2.1.1"
   }
 }
