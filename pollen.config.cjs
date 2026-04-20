@@ -1,4 +1,5 @@
 const { defineConfig } = require('pollen-css/utils');
+const { colord } = require('colord');
 
 module.exports = defineConfig({
   output: './src/assets/pollen/pollen.css',
@@ -8,27 +9,29 @@ module.exports = defineConfig({
     letter: false,
     line: false,
     prose: false,
-    typeset: false,
     weight: false,
     grid: false,
     'text-color': {
-      black: 'rgba(0, 0, 0, 0.87)',
-      white: 'rgba(255, 255, 255, 0.87)',
+      black: colord('rgba(0, 0, 0, 0.87)').toHex(),
+      white: colord('rgba(255, 255, 255, 0.87)').toHex(),
     },
     color: {
-      white: '#fff',
-      'grey-100': 'hsl(0, 0%, 90%)',
-      'grey-300': 'hsl(0, 0%, 65%)',
-      'grey-500': 'hsl(0, 0%, 40%)',
-      'grey-700': 'hsl(0, 0%, 25%)',
-      'grey-800': 'hsl(0, 0%, 17%)',
-      blue: 'hsl(213, 91%, 60%)',
-      green: 'hsl(140, 70%, 30%)',
-      sun: 'hsl(45, 93%, 47%)',
-      moon: 'hsl(46, 96%, 64%)',
+      white: colord('hsl(0, 100%, 100%)').toHex(),
+      'grey-100': colord('hsl(0, 0%, 90%)').toHex(),
+      'grey-300': colord('hsl(0, 0%, 65%)').toHex(),
+      'grey-500': colord('hsl(0, 0%, 40%)').toHex(),
+      'grey-700': colord('hsl(0, 0%, 25%)').toHex(),
+      'grey-800': colord('hsl(0, 0%, 17%)').toHex(),
+      blue: colord('hsl(213, 91%, 60%)').toHex(),
+      green: colord('hsl(140, 70%, 30%)').toHex(),
+      sun: colord('hsl(45, 93%, 47%)').toHex(),
+      moon: colord('hsl(46, 96%, 64%)').toHex(),
     },
     theme: {
       transition: '250ms',
+    },
+    header: {
+      height: '48px',
     },
   },
 });
