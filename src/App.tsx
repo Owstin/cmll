@@ -12,6 +12,7 @@ const Container = styled('div')`
   align-items: center;
   background-color: ${props => (props.theme as Accessor<Theme>)().backgroundColor};
   color: ${props => (props.theme as Accessor<Theme>)().textColor};
+  transition: color var(--theme-transition), background-color var(--theme-transition);
 `;
 
 const Content = styled('div')`
