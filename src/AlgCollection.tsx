@@ -1,6 +1,7 @@
 import { Component, createSignal, For, Show } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
+import { Theme } from './ThemeSwitcher';
 import { getAssetUrl } from './utils';
 
 const Card = styled('div')`
@@ -8,7 +9,7 @@ const Card = styled('div')`
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), var(--elevation-3);
   border-radius: var(--radius-sm);
   padding: var(--size-2);
-  background-color: white;
+  background-color: ${props => (props.theme as Theme).cardColor};
 
   &:hover,
   &:focus {
@@ -47,6 +48,7 @@ const AlgList = styled('div')<{ expanded?: boolean }>`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 
   &[expanded~='false'] {
     max-height: 0;
