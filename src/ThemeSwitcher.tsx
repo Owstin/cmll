@@ -16,8 +16,6 @@ const darkTheme = {
   textColor: 'var(--text-color-white)',
 };
 
-type Theme = typeof lightTheme;
-
 type Actions = {
   switchTheme: () => void;
   isDarkTheme: () => boolean;
@@ -69,4 +67,4 @@ const useThemeSwitcher = (): Actions => useContext(ThemeSwitcherContext);
 
 export default ThemeSwitcher;
 
-export { useThemeSwitcher, Theme };
+export { useThemeSwitcher };
