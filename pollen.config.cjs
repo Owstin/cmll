@@ -10,6 +10,7 @@ module.exports = defineConfig({
     prose: false,
     typeset: false,
     weight: false,
+    grid: false,
     'text-color': {
       black: 'rgba(0, 0, 0, 0.87)',
       white: 'rgba(255, 255, 255, 0.87)',
@@ -22,7 +23,7 @@ module.exports = defineConfig({
       'grey-700': 'hsl(0, 0%, 25%)',
       'grey-800': 'hsl(0, 0%, 17%)',
       blue: 'hsl(213, 91%, 60%)',
-      green: 'hsl(140deg, 70%, 30%)',
+      green: 'hsl(140, 70%, 30%)',
       sun: 'hsl(45, 93%, 47%)',
       moon: 'hsl(46, 96%, 64%)',
     },
