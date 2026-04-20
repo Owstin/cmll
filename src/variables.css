@@ -5,8 +5,11 @@
   --color-grey-700: hsl(0, 0%, 25%);
   --color-grey-500: hsl(0, 0%, 40%);
   --color-grey-300: hsl(0, 0%, 65%);
+  --color-grey-100: hsl(0, 0%, 90%);
 
   --color-blue-500: hsl(213, 91%, 60%);
+
+  --color-green-500: hsl(140deg, 70%, 30%);
 
   --text-color-black: rgba(0, 0, 0, 0.87);
   --text-color-white: rgba(255, 255, 255, 0.87);
