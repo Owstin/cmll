@@ -66,7 +66,7 @@ const AlgList = styled('div')<{ expanded?: boolean }>`
   }
 
   @supports not (gap: var(--gap)) {
-    & > * {
+    > * {
       margin-bottom: var(--gap);
       &:last-child {
         margin-bottom: 0;

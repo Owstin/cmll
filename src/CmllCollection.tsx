@@ -22,7 +22,7 @@ const Row = styled('div')`
     margin: var(--neg-gap) 0 0 var(--neg-gap);
     width: calc(100% + var(---gap));
 
-    & > * {
+    > * {
       margin: var(--gap) 0 0 var(--gap);
     }
   }

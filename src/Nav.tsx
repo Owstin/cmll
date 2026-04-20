@@ -1,7 +1,7 @@
-import { Component } from 'solid-js';
+import { Accessor, Component } from 'solid-js';
 import { css, keyframes, styled } from 'solid-styled-components';
 
-import { useThemeSwitcher } from './ThemeSwitcher';
+import { Theme, useThemeSwitcher } from './ThemeSwitcher';
 import ThemeToggle from './ThemeToggle';
 
 const SitckyNav = styled('nav')`
@@ -9,12 +9,13 @@ const SitckyNav = styled('nav')`
   top: 0;
   height: 48px;
   width: 100%;
-  background-color: hsl(120deg, 50%, 30%);
+  background-color: ${props => (props.theme as Accessor<Theme>)().navColor};
   z-index: 1;
   box-shadow: var(--elevation-3);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--theme-transition);
 `;
 
 const Content = styled('div')`
@@ -35,7 +36,6 @@ const Content = styled('div')`
 `;
 
 const NavTitle = styled('h1')`
-  color: var(--text-color-white);
   cursor: default;
   margin: 0;
 `;
