@@ -1,8 +1,5 @@
 {
-  "cssvar.files": [
-    "./node_modules/pollen-css/pollen.css",
-    "./node_modules/pollen-css/addons/colors.css"
-  ],
+  "cssvar.files": ["./node_modules/pollen-css/pollen.css", "./src/variables.css"],
   "cssvar.disableSort": true,
   "cssvar.extensions": ["css", "html", "jsx", "tsx"]
 }
