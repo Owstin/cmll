@@ -26,9 +26,20 @@ const AlgName = styled('h3')`
   margin: 0;
 `;
 
-const AlgImage = styled('img')<{ rotation: number }>`
+const AlgImage = styled('img')<{ rotation?: number }>`
   transition-duration: 800ms;
-  transform: rotate(${props => props.rotation}deg);
+  &:not([rotation]) {
+    transform: rotate(0deg);
+  }
+  &[rotation~='90'] {
+    transform: rotate(90deg);
+  }
+  &[rotation~='-90'] {
+    transform: rotate(-90deg);
+  }
+  &[rotation~='180'] {
+    transform: rotate(180deg);
+  }
 `;
 
 const AlgList = styled('div')<{ expanded?: boolean }>`
@@ -68,7 +79,7 @@ const getRotation = (alg: string) => {
     '(U2)': 180,
   };
   const [rotation] = /^\(U['2]?\)+/.exec(alg) || [];
-  return rotations[rotation] || 0;
+  return rotations[rotation];
 };
 
 interface Props {
@@ -78,7 +89,7 @@ interface Props {
 
 const AlgCollection: Component<Props> = props => {
   const expandable = props.algs.length > 3;
-  const [rotation, setRotation] = createSignal(0);
+  const [rotation, setRotation] = createSignal<number>();
   const [expanded, setExpanded] = createSignal(false);
   return (
     <Card onmouseenter={() => setExpanded(true)} onmouseleave={() => setExpanded(false)}>
@@ -95,7 +106,7 @@ const AlgCollection: Component<Props> = props => {
               <div>
                 <span
                   onmouseenter={() => setRotation(getRotation(alg))}
-                  onmouseleave={() => setRotation(0)}
+                  onmouseleave={() => setRotation()}
                 >
                   {alg}
                 </span>
@@ -109,7 +120,7 @@ const AlgCollection: Component<Props> = props => {
                   <div>
                     <span
                       onmouseenter={() => setRotation(getRotation(alg))}
-                      onmouseleave={() => setRotation(0)}
+                      onmouseleave={() => setRotation()}
                     >
                       {alg}
                     </span>
