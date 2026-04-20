@@ -106,8 +106,8 @@ const AlgCollection: Component<Props> = props => {
           {alg => (
             <div>
               <span
-                onmouseenter={() => setRotation(getRotation(alg))}
-                onmouseleave={() => setRotation()}
+                onMouseEnter={() => setRotation(getRotation(alg))}
+                onMouseLeave={() => setRotation()}
               >
                 {alg}
               </span>
@@ -120,8 +120,8 @@ const AlgCollection: Component<Props> = props => {
               {alg => (
                 <div>
                   <span
-                    onmouseenter={() => setRotation(getRotation(alg))}
-                    onmouseleave={() => setRotation()}
+                    onMouseEnter={() => setRotation(getRotation(alg))}
+                    onMouseLeave={() => setRotation()}
                   >
                     {alg}
                   </span>

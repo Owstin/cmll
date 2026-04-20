@@ -24,11 +24,11 @@ export default defineConfig({
         {
           entry: 'src/index.tsx',
           filename: 'index.html',
-          template: 'public/index.html',
+          template: '/index.html',
         },
         {
           filename: '404.html',
-          template: 'public/404.html',
+          template: '/404.html',
         },
       ],
     }),

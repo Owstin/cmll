@@ -111,7 +111,7 @@ const ThemeToggle: Component<Props> = props => (
     <input
       aria-label="Theme toggle"
       type="checkbox"
-      onchange={() => props.toggleTheme()}
+      onChange={() => props.toggleTheme()}
       checked={props.checked}
     />
     <div class="track">
