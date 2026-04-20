@@ -17,13 +17,21 @@
     },
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint/eslint-plugin", "import", "solid", "jsx-a11y", "prettier"],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "import",
+    "solid",
+    "compat",
+    "jsx-a11y",
+    "prettier"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:solid/recommended",
+    "plugin:compat/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],

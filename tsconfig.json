@@ -5,8 +5,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    "noEmit": true
   }
 }
