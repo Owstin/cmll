@@ -17,6 +17,7 @@ type Theme = typeof lightTheme;
 
 type Actions = {
   switchTheme: () => void;
+  isDarkTheme: () => boolean;
 };
 
 const ThemeSwitcherContext = createContext<Actions>();
@@ -25,9 +26,9 @@ const themeProp = 'theme';
 
 const getInitialTheme = () => {
   const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const themeName = localStorage.getItem(themeProp);
+  const storedTheme = localStorage.getItem(themeProp);
 
-  return themeName ? themeName : isDark ? 'dark' : 'light';
+  return storedTheme ? storedTheme : isDark ? 'dark' : 'light';
 };
 
 const selectTheme = (isDark: boolean) => (isDark ? darkTheme : lightTheme);
@@ -51,7 +52,9 @@ const ThemeSwitcher: Component = props => {
   );
 
   return (
-    <ThemeSwitcherContext.Provider value={{ switchTheme }}>
+    <ThemeSwitcherContext.Provider
+      value={{ switchTheme, isDarkTheme: () => themeName() === 'dark' }}
+    >
       <ThemeProvider theme={() => theme()}>{props.children}</ThemeProvider>
     </ThemeSwitcherContext.Provider>
   );

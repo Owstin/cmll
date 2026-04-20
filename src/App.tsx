@@ -1,9 +1,10 @@
 import type { Accessor, Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
+import { Theme, useThemeSwitcher } from './ThemeSwitcher';
 import { cmllCollection } from './Cmll';
 import Cmll from './CmllCollection';
-import { Theme, useThemeSwitcher } from './ThemeSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 const Container = styled('div')`
   display: flex;
@@ -22,11 +23,13 @@ const Content = styled('div')`
 `;
 
 const App: Component = () => {
-  const { switchTheme } = useThemeSwitcher();
+  const { switchTheme, isDarkTheme } = useThemeSwitcher();
   return (
     <Container>
       <Content>
-        <input type="checkbox" onchange={switchTheme} />
+        <div style={{ 'margin-top': '10px' }}>
+          <ThemeToggle toggleTheme={switchTheme} checked={!isDarkTheme()} />
+        </div>
         <Cmll cmllCollection={cmllCollection} />
       </Content>
     </Container>
