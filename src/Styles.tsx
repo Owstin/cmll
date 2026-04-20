@@ -1,9 +1,5 @@
 import { createGlobalStyles as createGlobalStyle } from 'solid-styled-components';
 
-import { Theme } from './ThemeSwitcher';
-
-type Props = { theme: Theme };
-
 const Styles = createGlobalStyle`
   :root {
     --color-white: #fff;
@@ -25,8 +21,6 @@ const Styles = createGlobalStyle`
   html {
     font-size: var(--size-4);
     width: var(--size-full);
-    background-color: ${(props: Props) => props.theme.backgroundColor};
-    color: ${(props: Props) => props.theme.textColor};
   }
 `;
 
