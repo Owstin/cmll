@@ -5,7 +5,7 @@ import { Theme } from './ThemeSwitcher';
 import { getAssetUrl } from './utils';
 
 const Card = styled('div')`
-  min-width: 314px;
+  flex-basis: 314px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), var(--elevation-3);
   border-radius: var(--radius-sm);
   padding: var(--size-2);
