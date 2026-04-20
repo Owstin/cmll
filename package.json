@@ -8,17 +8,20 @@
     "serve": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "lint": "npx eslint --ext=ts,tsx src",
-    "prettier": "npx prettier --write src",
+    "lint": "npx eslint --ext=ts,tsx .",
+    "lint:fix": "npx eslint --ext=ts,tsx --fix .",
+    "prettier": "npx prettier --write .",
     "prepare": "husky install"
   },
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
+    "@vitejs/plugin-legacy": "^1.6.4",
     "babel-plugin-transform-goober": "^1.2.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-compat": "^4.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
@@ -45,5 +48,17 @@
     "*.(ts|tsx)": [
       "npx eslint --fix"
     ]
-  }
+  },
+  "browserslist": [
+    ">= .25%",
+    "last 15 Chrome major versions",
+    "last 15 Firefox major versions",
+    "last 10 Edge major versions",
+    "last 6 Safari major versions",
+    "last 4 iOS major versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11",
+    "not op_mini all"
+  ]
 }
