@@ -3,7 +3,7 @@ import { styled } from 'solid-styled-components';
 
 import { getAssetUrl } from './utils';
 
-const Card = styled('div')`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +19,13 @@ const Card = styled('div')`
   }
 `;
 
-const AlgName = styled('h2')`
+const AlgName = styled.h2`
   display: flex;
   align-self: flex-start;
   margin: 0;
 `;
 
-const AlgImage = styled('img')<{ rotation?: number }>`
+const AlgImage = styled.img<{ rotation?: number }>`
   transition-duration: 800ms;
   &:not([rotation]) {
     transform: rotate(0deg);
@@ -41,7 +41,7 @@ const AlgImage = styled('img')<{ rotation?: number }>`
   }
 `;
 
-const AlgList = styled('div')<{ expanded?: boolean }>`
+const AlgList = styled.div<{ expanded?: boolean }>`
   --gap: var(--size-2);
   display: flex;
   flex-direction: column;

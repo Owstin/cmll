@@ -6,11 +6,11 @@ import AlgCollection from '../AlgCollection';
 
 import { CmllData } from './Cmll.data';
 
-const Container = styled('section')`
+const Container = styled.section`
   margin-bottom: var(--size-4);
 `;
 
-const Row = styled('div')`
+const Row = styled.div`
   --gap: var(--size-4);
   display: flex;
   flex-flow: row wrap;
@@ -34,11 +34,11 @@ const Row = styled('div')`
   }
 `;
 
-const Hidden = styled('div')`
+const Hidden = styled.div`
   visibility: collapse;
 `;
 
-const CollectionName = styled('h1')`
+const CollectionName = styled.h1`
   font-size: var(--scale-5);
   margin-top: 0;
   margin-bottom: var(--size-4);
