@@ -1,4 +1,4 @@
-import { useData } from 'solid-app-router';
+import { useRouteData } from 'solid-app-router';
 import { Component, For } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
@@ -47,7 +47,7 @@ const CollectionName = styled('h1')`
 const rowItems = 4;
 
 const Cmll: Component = () => {
-  const cmllData = useData<CmllData>();
+  const cmllData = useRouteData<CmllData>();
   return (
     <For each={Object.entries(cmllData)}>
       {([name, collection]) => (

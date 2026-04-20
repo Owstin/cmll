@@ -43,6 +43,7 @@
         "newlines-between": "always"
       }
     ],
-    "solid/no-react-specific-props": "off"
+    "solid/no-react-specific-props": "off",
+    "solid/reactivity": "off"
   }
 }

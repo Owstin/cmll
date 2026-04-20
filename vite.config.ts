@@ -1,23 +1,36 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import legacy from '@vitejs/plugin-legacy';
-import { minifyHtml } from 'vite-plugin-html';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig({
   assetsInclude: ['html'],
   plugins: [
     solidPlugin(),
     legacy(),
-    minifyHtml({
-      collapseWhitespace: true,
-      decodeEntities: true,
-      minifyCSS: true,
-      minifyJS: true,
-      processConditionalComments: true,
-      removeAttributeQuotes: false,
-      removeComments: true,
-      removeEmptyAttributes: true,
-      useShortDoctype: false,
+    createHtmlPlugin({
+      minify: {
+        collapseWhitespace: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeAttributeQuotes: false,
+        removeComments: true,
+        removeEmptyAttributes: true,
+        useShortDoctype: false,
+      },
+      pages: [
+        {
+          entry: 'src/index.tsx',
+          filename: 'index.html',
+          template: 'public/index.html',
+        },
+        {
+          filename: '404.html',
+          template: 'public/404.html',
+        },
+      ],
     }),
   ],
   base: '/cmll/',
@@ -26,11 +39,5 @@ export default defineConfig({
     polyfillDynamicImport: false,
     emptyOutDir: true,
     assetsInlineLimit: 0,
-    rollupOptions: {
-      input: {
-        index: 'index.html',
-        '404': '404.html',
-      },
-    },
   },
 });

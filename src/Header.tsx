@@ -1,7 +1,7 @@
-import { Accessor, Component } from 'solid-js';
+import { Component } from 'solid-js';
 import { css, keyframes, styled } from 'solid-styled-components';
 
-import { Theme, useThemeSwitcher } from './ThemeSwitcher';
+import { useThemeSwitcher } from './ThemeSwitcher';
 import ThemeToggle from './ThemeToggle';
 
 const SitckyHeader = styled('header')`
@@ -9,7 +9,7 @@ const SitckyHeader = styled('header')`
   top: 0;
   height: var(--header-height);
   width: 100%;
-  background-color: ${props => (props.theme as Accessor<Theme>)().navColor};
+  background-color: ${props => props.theme().navColor};
   z-index: var(--layer-1);
   box-shadow: var(--elevation-3);
   display: flex;
