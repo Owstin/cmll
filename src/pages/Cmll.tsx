@@ -35,7 +35,7 @@ const Row = styled.div`
 `;
 
 const Hidden = styled.div`
-  visibility: collapse;
+  visibility: hidden;
 `;
 
 const CollectionName = styled.h1`
