@@ -21,7 +21,7 @@ export const cmllCollection: CmllCollection = {
   b: [
     {
       name: 'b1',
-      cases: ["R' U' R U' R' U2 R"],
+      cases: ["R' U' R U' R' U2 R", "(U) r U2' R' U' R  U' r'"],
     },
     {
       name: 'b2',
@@ -47,7 +47,7 @@ export const cmllCollection: CmllCollection = {
   c: [
     {
       name: 'c1',
-      cases: ["R U R' U R U2 R'", "r U R' U R U2 r'"],
+      cases: ["R U R' U R U2 R'", "r U R' U R U2 r'", "(U) l' U2 L U r' F R"],
     },
     {
       name: 'c2',
@@ -85,7 +85,7 @@ export const cmllCollection: CmllCollection = {
     },
     {
       name: 'd4',
-      cases: ["R2 D R' U R D' R' U' R'"],
+      cases: ["R2 D R' U R D' R' U' R'", "(U') l' U' r' F R F' L F'"],
     },
     {
       name: 'd5',
@@ -151,7 +151,7 @@ export const cmllCollection: CmllCollection = {
     },
     {
       name: 'f4',
-      cases: ["(U2) F R U R' U' R U' R' U' R U R' F'"],
+      cases: ["(U2) F R U R' U' R U' R' U' R U R' F'", "(U') R U R' F' U' R U R' U' R' F R2 U' R'"],
     },
     {
       name: 'f5',
@@ -208,7 +208,7 @@ export const cmllCollection: CmllCollection = {
     },
     {
       name: 'h2',
-      cases: ["f R U R' U' f' R U R' U' R' F R F'"],
+      cases: ["F R U R' U' F' R U R' U' R' F R F'", "f R U R' U' f' R U R' U' R' F R F'"],
     },
     {
       name: 'h3',
