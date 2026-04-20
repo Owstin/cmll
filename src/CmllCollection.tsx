@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
 import AlgCollection from './AlgCollection';
@@ -13,6 +13,10 @@ const Row = styled('div')`
   display: flex;
   flex-flow: row wrap;
 
+  > * {
+    flex: 1 0 314px;
+  }
+
   @supports (gap: var(--gap)) {
     gap: var(--gap);
   }
@@ -26,6 +30,11 @@ const Row = styled('div')`
       margin: var(--gap) 0 0 var(--gap);
     }
   }
+`;
+
+const Hidden = styled('div')`
+  visibility: hidden;
+  padding: var(--size-2);
 `;
 
 const CollectionName = styled('h1')`
@@ -43,9 +52,8 @@ const Cmll: Component<Props> = props =>
     <Container>
       <CollectionName>{name}</CollectionName>
       <Row>
-        {collection.map(alg => (
-          <AlgCollection name={alg.name} algs={alg.cases} />
-        ))}
+        <For each={collection}>{alg => <AlgCollection name={alg.name} algs={alg.cases} />}</For>
+        <For each={new Array(4 - (collection.length % 4)).fill(0)}>{() => <Hidden />}</For>
       </Row>
     </Container>
   ));
