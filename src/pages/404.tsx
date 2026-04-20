@@ -1,7 +1,7 @@
 import { Component } from 'solid-js';
 import { styled } from 'solid-styled-components';
 
-const Page404 = styled('div')`
+const Page404 = styled.div`
   text-align: center;
   font-size: var(--scale-6);
 `;
